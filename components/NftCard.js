@@ -1,10 +1,48 @@
 import Card from "./Card";
 import ClickOutHandler from "react-clickout-handler";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 
-export default function NftCard() {
+export default function NftCard({
+  id,
+  author,
+  nftName,
+  collection,
+  categoryTags,
+  marketplace,
+  blockchain,
+  currency,
+  price,
+  marketplaceLink,
+  collectionTwitter,
+  collectionWebsite,
+  nftImage,
+}) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  const supabase = useSupabaseClient();
+  const session = useSession();
+
+  useEffect(() => {
+    if (session?.user?.id) fetchIsSaved();
+  }, [session?.user?.id]);
+
+  function fetchIsSaved() {
+    supabase
+      .from("saved_nfts")
+      .select()
+      .eq("nft_id", id)
+      .eq("user_id", session.user.id)
+      .then((result) => {
+        if (result.data.length > 0) {
+          setIsSaved(true);
+        } else {
+          setIsSaved(false);
+        }
+      });
+  }
 
   function openDropdown(e) {
     e.stopPropagation();
@@ -16,27 +54,71 @@ export default function NftCard() {
     setDropdownOpen(false);
   }
 
+  function toggleSave() {
+    if (isSaved) {
+      supabase
+        .from("saved_nfts")
+        .delete()
+        .eq("nft_id", id)
+        .eq("user_id", session.user.id)
+        .then((result) => {
+          setIsSaved(false);
+          setDropdownOpen(false);
+        });
+    }
+    if (!isSaved) {
+      supabase
+        .from("saved_nfts")
+        .insert({
+          user_id: session.user.id,
+          nft_id: id,
+        })
+        .then((result) => {
+          setIsSaved(true);
+          setDropdownOpen(false);
+        });
+    }
+  }
+
   return (
     <Card>
-      <div className="flex justify-end">
-        {/* <div>
-          <Link href={"/profile"}>
-            <span className="cursor-pointer">
-              <Avatar />
+      <div className="flex justify-between">
+        <div>
+          <h3 className="text-xl">
+            <span className="font-semibold text-aulaBlack">{nftName}</span>
+          </h3>
+          <h3 className="text-lg mb-2">
+            Collection:{" "}
+            <span className="font-semibold text-aulaGray">{collection}</span>
+          </h3>
+          <h3 className="text-base">
+            Category:{" "}
+            <span className="font-semibold text-aulaGray">{categoryTags}</span>
+          </h3>
+          <h3 className="text-base">
+            Marketplace:{" "}
+            <span className="font-semibold text-aulaGray">{marketplace}</span>
+          </h3>
+          <h3 className="text-base">
+            Blockchain:{" "}
+            <span className="font-semibold text-aulaGray">{blockchain}</span>
+          </h3>
+          <h3 className="text-base my-2">
+            Price:{" "}
+            <span className="font-semibold text-aulaGray">
+              {price + " " + currency}
             </span>
-          </Link>
-        </div>
-        <div className="grow">
-          <p>
-            <Link href={"/profile"}>
-              <span className="font-semibold cursor-pointer hover:underline">
-                John Doe
-              </span>
-            </Link>{" "}
-            shared an <a className="text-aulaBlack">album</a>
+          </h3>
+          <p className="text-gray-500 text-sm">
+            Buy at: <span className="cursor-pointer">{marketplaceLink}</span>
           </p>
-          <p className="text-gray-500 text-sm">2 hours ago</p>
-        </div> */}
+          <p className="text-gray-500 text-sm">
+            Twitter: <span className="cursor-pointer">{collectionTwitter}</span>
+          </p>
+          <p className="text-gray-500 text-sm">
+            Website: <span className="cursor-pointer">{collectionWebsite}</span>
+          </p>
+        </div>
         <div className="relative">
           <button className="text-gray-400" onClick={openDropdown}>
             <svg
@@ -61,26 +143,45 @@ export default function NftCard() {
             <div className="relative">
               {dropdownOpen && (
                 <div className="absolute -right-6 bg-white shadow-md shadow-gray-300 p-3 rounded-md border border-gray-100 w-52">
-                  <a
-                    href=""
-                    className="flex gap-3 py-2 my-2 hover:bg-aulaBlack hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
-                      />
-                    </svg>
-                    Save NFT
-                  </a>
+                  <button onClick={toggleSave} className="w-full">
+                    <span className="flex gap-3 py-2 hover:bg-aulaBlack hover:text-white px-4 -mx-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300">
+                      {isSaved && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3 3l1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 011.743-1.342 48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664L19.5 19.5"
+                          />
+                        </svg>
+                      )}
+
+                      {!isSaved && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+                          />
+                        </svg>
+                      )}
+
+                      {isSaved ? "Unsave" : "Save NFT"}
+                    </span>
+                  </button>
                   <a
                     href=""
                     className="flex gap-3 py-2 my-2 hover:bg-aulaBlack hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
@@ -173,12 +274,16 @@ export default function NftCard() {
           natoque penatibus et magnis dis parturient montes, nascetur ridiculus
           mus. Duis viverra diam non justo.
         </p> */}
-        <div className="rounded-md overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            alt=""
-          />
+        <div className="rounded-md overflow-hidden my-2">
+          {nftImage?.length > 0 && <img src={nftImage} alt="" />}
         </div>
+      </div>
+      <div className="text-center">
+        {/* <Link href={"/profile"}> */}
+        <p className="text-gray-500 text-sm">
+          Uploaded by: <span className="cursor-pointer">{author}</span>
+        </p>
+        {/* </Link> */}
       </div>
       {/* <div className="mt-5 flex gap-8">
         <button className="flex gap-2 items-center">

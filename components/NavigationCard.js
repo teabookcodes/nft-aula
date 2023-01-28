@@ -144,7 +144,7 @@ export default function NavigationCard() {
           <h2 className="text-xl text-gray-400 mt-6 mb-4 px-2 hidden md:block">
             Explore
           </h2>
-          <Link
+          {/* <Link
             href="/"
             className={
               pathname === "/categories/art"
@@ -244,7 +244,7 @@ export default function NavigationCard() {
               />
             </svg>
             Collectibles
-          </Link>
+          </Link> */}
         </div>
       </div>
     </Card>
