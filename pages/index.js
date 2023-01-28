@@ -18,7 +18,7 @@ export default function Home() {
       .then((result) => {
         setNfts(result.data);
       });
-  });
+  }, []);
 
   if (!session) {
     return <LoginPage />;

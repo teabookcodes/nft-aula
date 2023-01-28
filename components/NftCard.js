@@ -27,7 +27,7 @@ export default function NftCard({
 
   useEffect(() => {
     if (session?.user?.id) fetchIsSaved();
-  }, [session?.user?.id]);
+  }, []);
 
   function fetchIsSaved() {
     supabase
