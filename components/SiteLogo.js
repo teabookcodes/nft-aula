@@ -20,7 +20,7 @@ export default function SiteLogo({ size }) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_18_18)">
+        <g clipPath="url(#clip0_18_18)">
           <path
             d="M55.125 40C55.125 25.0193 42.9807 12.875 28 12.875C13.0193 12.875 0.875 25.0193 0.875 40C0.875 54.9807 13.0193 67.125 28 67.125C42.9807 67.125 55.125 54.9807 55.125 40Z"
             fill="white"

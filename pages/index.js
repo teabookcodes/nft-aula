@@ -16,7 +16,6 @@ export default function Home() {
       .select("*")
       .order("created_at", { ascending: false })
       .then((result) => {
-        console.log("nfts", result);
         setNfts(result.data);
       });
   });

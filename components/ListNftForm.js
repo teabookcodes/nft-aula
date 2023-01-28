@@ -39,8 +39,6 @@ export default function UploadForm() {
             "/storage/v1/object/public/nfts/" +
             result.data.path;
           setUpload(url);
-        } else {
-          console.log(result);
         }
       }
       setIsUploading(false);
