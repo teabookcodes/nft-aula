@@ -1,7 +1,5 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import Avatar from "../components/Avatar";
 
 export default function NotificationsPage() {
   return (

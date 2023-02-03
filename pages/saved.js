@@ -24,7 +24,7 @@ export default function SavedNftsPage() {
           .in("id", nftsIds)
           .then((result) => setNfts(result.data));
       });
-  }, [session?.user?.id]);
+  }, [supabase, session?.user?.id]);
 
   return (
     <Layout>
