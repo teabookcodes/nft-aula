@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export default function UploadForm() {
@@ -76,6 +76,10 @@ export default function UploadForm() {
           setCollectionWebsite("");
           setUpload("");
           alert("NFT succesfully uploaded!");
+        } else {
+          alert(
+            "NFT could not be uploaded due to an error. You must fill in all fields correctly!"
+          );
         }
       });
   }
@@ -129,46 +133,95 @@ export default function UploadForm() {
         </div>
       )}
       <div className="mb-6">
-        <label className="block text-gray-700 mb-2">Category tags:</label>
-        <input
+        <label className="block text-gray-700 mb-2">Category:</label>
+        <select
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
-          type="text"
           value={categoryTags}
           onChange={(e) => setCategoryTags(e.target.value)}
-        />
+        >
+          <option value="">Please select a category</option>
+          <option value="Art">Art</option>
+          <option value="Music">Music</option>
+          <option value="Memes">Memes</option>
+          <option value="Gaming">Gaming</option>
+          <option value="Sports">Sports</option>
+          <option value="Photography">Photography</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Nature">Nature</option>
+          <option value="Cities">Cities</option>
+          <option value="Space">Space</option>
+          <option value="Food">Food</option>
+          <option value="Animals">Animals</option>
+          <option value="Travel">Travel</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 mb-2">Marketplace:</label>
-        <input
+        <select
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
-          type="text"
           value={marketplace}
           onChange={(e) => setMarketplace(e.target.value)}
-        />
+        >
+          <option value="">Please select a marketplace</option>
+          <option value="OpenSea">OpenSea</option>
+          <option value="MagicEden">MagicEden</option>
+          <option value="Rarible">Rarible</option>
+          <option value="SuperRare">SuperRare</option>
+          <option value="Nifty Gateway">Nifty Gateway</option>
+          <option value="Foundation">Foundation</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 mb-2">Blockchain:</label>
-        <input
+        <select
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
-          type="text"
           value={blockchain}
           onChange={(e) => setBlockchain(e.target.value)}
-        />
+        >
+          <option value="">Please select a blockchain</option>
+          <option value="Ethereum">Ethereum</option>
+          <option value="Solana">Solana</option>
+          <option value="Binance Smart Chain">Binance Smart Chain</option>
+          <option value="Polygon">Polygon</option>
+          <option value="Flow">Flow</option>
+          <option value="WAX">WAX</option>
+          <option value="TomoChain">TomoChain</option>
+          <option value="Tron">Tron</option>
+          <option value="Hive">Hive</option>
+          <option value="Algorand">Algorand</option>
+          <option value="Tezos">Tezos</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 mb-2">Currency:</label>
-        <input
+        <select
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
-          type="text"
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
-        />
+        >
+          <option value="">Please select a currency</option>
+          <option value="ETH">Ether (ETH)</option>
+          <option value="BNB">Binance Coin (BNB)</option>
+          <option value="MATIC">Polygon Token (MATIC)</option>
+          <option value="FLOW">Flow Token (FLOW)</option>
+          <option value="WAXP">WAX Token (WAXP)</option>
+          <option value="TOMO">TomoCoin (TOMO)</option>
+          <option value="TRX">TRON (TRX)</option>
+          <option value="HIVE">Hive Token (HIVE)</option>
+          <option value="ALGO">Algorand (ALGO)</option>
+          <option value="XTZ">Tezos (XTZ)</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 mb-2">Price:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="number"
+          placeholder="0,3879"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -178,28 +231,27 @@ export default function UploadForm() {
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="text"
+          placeholder="https://opensea.io/assets/ethereum/0x466cfcd0525189b573e794f554b8a751279213ac/3512/"
           value={marketplaceLink}
           onChange={(e) => setMarketplaceLink(e.target.value)}
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 mb-2">
-          Twitter of the collection (optional):
-        </label>
+        <label className="block text-gray-700 mb-2">Twitter:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="text"
+          placeholder="https://twitter.com/doodles"
           value={collectionTwitter}
           onChange={(e) => setCollectionTwitter(e.target.value)}
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 mb-2">
-          Website of the collection (optional):
-        </label>
+        <label className="block text-gray-700 mb-2">Website:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="text"
+          placeholder="https://doodles.app/dooplicator"
           value={collectionWebsite}
           onChange={(e) => setCollectionWebsite(e.target.value)}
         />

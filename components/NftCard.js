@@ -2,7 +2,6 @@ import Card from "./Card";
 import ClickOutHandler from "react-clickout-handler";
 import { useState, useEffect } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Link from "next/link";
 
 export default function NftCard({
   id,
@@ -89,8 +88,7 @@ export default function NftCard({
           <h3 className="text-xl">
             <span className="font-semibold text-aulaBlack">{nftName}</span>
           </h3>
-          <h3 className="text-lg mb-2">
-            Collection:{" "}
+          <h3 className="text-base mb-2">
             <span className="font-semibold text-aulaGray">{collection}</span>
           </h3>
           <h3 className="text-base">
@@ -105,21 +103,12 @@ export default function NftCard({
             Blockchain:{" "}
             <span className="font-semibold text-aulaGray">{blockchain}</span>
           </h3>
-          <h3 className="text-base my-2">
+          <h3 className="text-lg my-2">
             Price:{" "}
             <span className="font-semibold text-aulaGray">
               {price + " " + currency}
             </span>
           </h3>
-          <p className="text-gray-500 text-sm">
-            Buy at: <span className="cursor-pointer">{marketplaceLink}</span>
-          </p>
-          <p className="text-gray-500 text-sm">
-            Twitter: <span className="cursor-pointer">{collectionTwitter}</span>
-          </p>
-          <p className="text-gray-500 text-sm">
-            Website: <span className="cursor-pointer">{collectionWebsite}</span>
-          </p>
         </div>
         <div className="relative">
           <button className="text-gray-400" onClick={openDropdown}>
@@ -138,6 +127,7 @@ export default function NftCard({
               />
             </svg>
           </button>
+
           {dropdownOpen && (
             <div className="bg-red w-7 h-5 absolute top-0 -right-1"></div>
           )}
@@ -250,11 +240,51 @@ export default function NftCard({
           </ClickOutHandler>
         </div>
       </div>
-      <div>
-        <div className="rounded-md overflow-hidden my-2">
-          {nftImage?.length > 0 && <img src={nftImage} alt="" />}
+      <div className="rounded-md overflow-hidden my-2">
+        {nftImage?.length > 0 && (
+          <img
+            className="w-full"
+            src={nftImage}
+            alt={nftName}
+            title={nftName}
+          />
+        )}
+        <div className="relative text-right">
+          <div className="absolute rounded-lg text-white left-3 bottom-3">
+            <p className="block w-16 mr-auto mb-2 px-3 text-left rounded-full bg-aulaBlack text-white">
+              <a
+                href={collectionWebsite}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold"
+              >
+                Web
+              </a>
+            </p>
+            <p className="block w-24 mr-auto mb-2 px-3 text-left rounded-full bg-aulaBlack text-white">
+              <a
+                href={collectionTwitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold"
+              >
+                Twitter
+              </a>
+            </p>
+            <p className="block w-32 mr-auto mb-2 px-3 text-left rounded-full bg-aulaBlack text-white">
+              <a
+                href={marketplaceLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold"
+              >
+                {marketplace}
+              </a>
+            </p>
+          </div>
         </div>
       </div>
+
       <div className="text-center">
         <p className="text-gray-500 text-sm">
           Uploaded by: <span className="cursor-pointer">{author}</span>
