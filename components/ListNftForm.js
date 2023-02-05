@@ -13,6 +13,7 @@ export default function UploadForm() {
   const [price, setPrice] = useState("");
   const [marketplaceLink, setMarketplaceLink] = useState("");
   const [collectionTwitter, setCollectionTwitter] = useState("");
+  const [collectionLink, setCollectionLink] = useState("");
   const [collectionWebsite, setCollectionWebsite] = useState("");
   const [upload, setUpload] = useState("");
   const [isUploading, setIsUploading] = useState(false);
@@ -61,6 +62,7 @@ export default function UploadForm() {
         price,
         marketplaceLink,
         collectionTwitter,
+        collectionLink,
         collectionWebsite,
         nftImage: upload,
       })
@@ -76,6 +78,7 @@ export default function UploadForm() {
           setPrice("");
           setMarketplaceLink("");
           setCollectionTwitter("");
+          setCollectionLink("");
           setCollectionWebsite("");
           setUpload("");
           alert("NFT succesfully uploaded!");
@@ -243,9 +246,21 @@ export default function UploadForm() {
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="text"
-          placeholder="https://marketplace.io/"
+          placeholder="https://marketplace.io"
           value={marketplaceLink}
           onChange={(e) => setMarketplaceLink(e.target.value)}
+        />
+      </div>
+      <div className="mb-6">
+        <label className="block text-gray-700 mb-2">
+          Link to collection on marketplace:
+        </label>
+        <input
+          className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+          type="text"
+          placeholder="https://marketplace.io/yourcollection"
+          value={collectionLink}
+          onChange={(e) => setCollectionLink(e.target.value)}
         />
       </div>
       <div className="mb-6">
@@ -263,7 +278,7 @@ export default function UploadForm() {
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="text"
-          placeholder="https://yourwebsite.com/"
+          placeholder="https://yourcollectionwebsite.com"
           value={collectionWebsite}
           onChange={(e) => setCollectionWebsite(e.target.value)}
         />

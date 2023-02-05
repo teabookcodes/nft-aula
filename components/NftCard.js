@@ -15,6 +15,7 @@ export default function NftCard({
   currency,
   price,
   marketplaceLink,
+  collectionLink,
   collectionTwitter,
   collectionWebsite,
   nftImage,
@@ -24,11 +25,6 @@ export default function NftCard({
 
   const supabase = useSupabaseClient();
   const session = useSession();
-
-  const activeWebsiteClasses =
-    "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack";
-  const nonActiveWebsiteClasses =
-    "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-gray-300 bg-gray-500";
 
   useEffect(() => {
     if (session?.user?.id) {
@@ -258,18 +254,8 @@ export default function NftCard({
         )}
         <div className="relative text-right">
           <div className="absolute rounded-lg text-white left-3 bottom-3">
-            <p
-              className={
-                collectionWebsite === ""
-                  ? nonActiveWebsiteClasses
-                  : activeWebsiteClasses
-              }
-            >
-              {collectionWebsite === "" && (
-                <div className="font-semibold cursor-not-allowed">Web</div>
-              )}
-
-              {collectionWebsite !== "" && (
+            {collectionWebsite !== "" && (
+              <p className="block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
                 <a
                   href={collectionWebsite}
                   target="_blank"
@@ -278,26 +264,38 @@ export default function NftCard({
                 >
                   Web
                 </a>
-              )}
-            </p>
-            <p className="block w-24 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
+              </p>
+            )}
+            {collectionTwitter !== "" && (
+              <p className="block w-20 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
+                <a
+                  href={collectionTwitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold"
+                >
+                  Twitter
+                </a>
+              </p>
+            )}
+            <p className="block w-28 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
               <a
-                href={collectionTwitter}
+                href={collectionLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold"
               >
-                Twitter
+                Collection
               </a>
             </p>
-            <p className="block w-32 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
+            <p className="block w-auto mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
               <a
                 href={marketplaceLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold"
               >
-                {marketplace}
+                Buy at {marketplace}
               </a>
             </p>
           </div>

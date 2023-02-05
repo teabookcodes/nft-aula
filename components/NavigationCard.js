@@ -9,9 +9,9 @@ export default function NavigationCard() {
   const { asPath: pathname } = router;
 
   const activeElementClasses =
-    "text-sm md:text-md flex items-center md:gap-3 py-3 my-1 md:-mx-1 px-4 md:px-5 bg-aulaBlack text-white rounded-full shadow-md shadow-gray-300";
+    "text-sm md:text-md flex items-center md:gap-3 py-3 my-1 md:-mx-1 px-3 md:px-5 bg-aulaBlack text-white rounded-full shadow-md shadow-gray-300";
   const nonActiveElementClasses =
-    "text-sm md:text-md flex items-center md:gap-3 py-2 my-2 px-4 hover:bg-aulaBlack hover:bg-opacity-10 rounded-full transition-all hover:scale-110 hover:shadow-md shadow-gray-300";
+    "text-sm md:text-md flex items-center md:gap-3 py-2 my-2 px-2 hover:bg-aulaBlack hover:bg-opacity-10 rounded-full transition-all hover:scale-110 hover:shadow-md shadow-gray-300";
 
   const supabase = useSupabaseClient();
   async function logout() {
@@ -95,7 +95,7 @@ export default function NavigationCard() {
                 d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
               />
             </svg>
-            <span className="hidden md:block">List your NFT</span>
+            <span className="hidden md:block">List new NFT</span>
           </Link>
           <Link
             href="/saved"
@@ -120,6 +120,30 @@ export default function NavigationCard() {
               />
             </svg>
             <span className="hidden md:block">Saved NFTs</span>
+          </Link>
+          <Link
+            href="/profile"
+            className={
+              pathname === "/profile"
+                ? activeElementClasses
+                : nonActiveElementClasses
+            }
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+              />
+            </svg>
+            <span className="hidden md:block">My Profile</span>
           </Link>
           {/* <Link
             href="/notifications"

@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <Layout>
       <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
-        List your NFT
+        List new NFT
       </h1>
       <Card>
         <ListNftForm />
