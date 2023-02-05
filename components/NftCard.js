@@ -28,26 +28,7 @@ export default function NftCard({
   const activeWebsiteClasses =
     "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack";
   const nonActiveWebsiteClasses =
-    "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaGray bg-opacity-30";
-
-
-  // if (marketplaceLink > 0) {
-  //   marketplaceClasses += " bg-gray-500";
-  // } else {
-  //   marketplaceClasses += " bg-aulaBlack";
-  // }
-
-  // if (collectionTwitter > 0) {
-  //   twitterClasses += " bg-gray-500";
-  // } else {
-  //   twitterClasses += " bg-aulaBlack";
-  // }
-
-  // if (collectionWebsite > 0) {
-  //   websiteClasses += " bg-gray-500";
-  // } else {
-  //   websiteClasses += " bg-aulaBlack";
-  // }
+    "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-gray-300 bg-gray-500";
 
   useEffect(() => {
     if (session?.user?.id) {
@@ -284,14 +265,20 @@ export default function NftCard({
                   : activeWebsiteClasses
               }
             >
-              <a
-                href={collectionWebsite}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold"
-              >
-                Web
-              </a>
+              {collectionWebsite === "" && (
+                <div className="font-semibold cursor-not-allowed">Web</div>
+              )}
+
+              {collectionWebsite !== "" && (
+                <a
+                  href={collectionWebsite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold"
+                >
+                  Web
+                </a>
+              )}
             </p>
             <p className="block w-24 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
               <a
