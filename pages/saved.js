@@ -28,7 +28,7 @@ export default function SavedNftsPage() {
 
   return (
     <Layout>
-      <h1 className="text-5xl mb-4 text-gray-800 text-center md:text-left">
+      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Saved NFTs
       </h1>
       {nfts.length > 0 &&

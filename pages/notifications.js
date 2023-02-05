@@ -4,7 +4,7 @@ import Card from "../components/Card";
 export default function NotificationsPage() {
   return (
     <Layout>
-      <h1 className="text-5xl mb-4 text-gray-800 text-center md:text-left">
+      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Notifications
       </h1>
       <Card noPadding={true}>

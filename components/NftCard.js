@@ -8,7 +8,8 @@ export default function NftCard({
   author,
   nftName,
   collection,
-  categoryTags,
+  category,
+  description,
   marketplace,
   blockchain,
   currency,
@@ -23,6 +24,30 @@ export default function NftCard({
 
   const supabase = useSupabaseClient();
   const session = useSession();
+
+  const activeWebsiteClasses =
+    "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack";
+  const nonActiveWebsiteClasses =
+    "block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaGray bg-opacity-30";
+
+
+  // if (marketplaceLink > 0) {
+  //   marketplaceClasses += " bg-gray-500";
+  // } else {
+  //   marketplaceClasses += " bg-aulaBlack";
+  // }
+
+  // if (collectionTwitter > 0) {
+  //   twitterClasses += " bg-gray-500";
+  // } else {
+  //   twitterClasses += " bg-aulaBlack";
+  // }
+
+  // if (collectionWebsite > 0) {
+  //   websiteClasses += " bg-gray-500";
+  // } else {
+  //   websiteClasses += " bg-aulaBlack";
+  // }
 
   useEffect(() => {
     if (session?.user?.id) {
@@ -91,9 +116,10 @@ export default function NftCard({
           <h3 className="text-base mb-2">
             <span className="font-semibold text-aulaGray">{collection}</span>
           </h3>
+          <p className="text-sm mb-2 text-gray-500">{description}</p>
           <h3 className="text-base">
             Category:{" "}
-            <span className="font-semibold text-aulaGray">{categoryTags}</span>
+            <span className="font-semibold text-aulaGray">{category}</span>
           </h3>
           <h3 className="text-base">
             Marketplace:{" "}
@@ -105,7 +131,7 @@ export default function NftCard({
           </h3>
           <h3 className="text-lg my-2">
             Price:{" "}
-            <span className="font-semibold text-aulaGray">
+            <span className="font-semibold text-aulaBlack">
               {price + " " + currency}
             </span>
           </h3>
@@ -251,7 +277,13 @@ export default function NftCard({
         )}
         <div className="relative text-right">
           <div className="absolute rounded-lg text-white left-3 bottom-3">
-            <p className="block w-16 mr-auto mb-2 px-3 text-left rounded-full bg-aulaBlack text-white">
+            <p
+              className={
+                collectionWebsite === ""
+                  ? nonActiveWebsiteClasses
+                  : activeWebsiteClasses
+              }
+            >
               <a
                 href={collectionWebsite}
                 target="_blank"
@@ -261,7 +293,7 @@ export default function NftCard({
                 Web
               </a>
             </p>
-            <p className="block w-24 mr-auto mb-2 px-3 text-left rounded-full bg-aulaBlack text-white">
+            <p className="block w-24 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
               <a
                 href={collectionTwitter}
                 target="_blank"
@@ -271,7 +303,7 @@ export default function NftCard({
                 Twitter
               </a>
             </p>
-            <p className="block w-32 mr-auto mb-2 px-3 text-left rounded-full bg-aulaBlack text-white">
+            <p className="block w-32 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
               <a
                 href={marketplaceLink}
                 target="_blank"
@@ -285,11 +317,11 @@ export default function NftCard({
         </div>
       </div>
 
-      <div className="text-center">
+      {/* <div className="text-center">
         <p className="text-gray-500 text-sm">
           Uploaded by: <span className="cursor-pointer">{author}</span>
         </p>
-      </div>
+      </div> */}
     </Card>
   );
 }

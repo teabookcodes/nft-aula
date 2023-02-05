@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <h1 className="text-5xl mb-4 text-gray-800 text-center md:text-left">
+      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Home
       </h1>
       <Card></Card>

@@ -22,7 +22,7 @@ export default function NavigationCard() {
     <Card noPadding={true}>
       <div className="flex justify-center items-center md:block rounded-md shadow-md shadow-gray-500 md:shadow-none">
         <div className="px-4 py-2 flex gap-4 items-center justify-between md:block">
-          <div className="px-2 mb-4 hidden md:block">
+          <div className="ml-2 px-2 mt-2 mb-4 hidden md:block">
             <Link href="/">
               <SiteLogo size={"sm"} />
             </Link>

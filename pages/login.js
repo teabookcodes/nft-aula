@@ -68,8 +68,7 @@ export default function LoginPage() {
     <Layout hideNavigation={true}>
       <div className="h-screen flex items-center">
         <div className="max-w-xs mx-auto grow -mt-24">
-          {/* <h1 className="text-5xl mb-4 text-gray-300 text-center">NFTaula</h1> */}
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mt-16 mb-4">
             <SiteLogo />
           </div>
           <Card noPadding={true}>

@@ -82,7 +82,7 @@ export default function BrowsePage() {
       .then((result) => {
         setNfts(result.data);
       });
-  }, [supabase]); 
+  }, [supabase]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,7 +97,7 @@ export default function BrowsePage() {
 
   return (
     <Layout>
-      <h1 className="text-5xl mb-4 text-gray-800 text-center md:text-left">
+      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Browse the art
       </h1>
       <Card>
