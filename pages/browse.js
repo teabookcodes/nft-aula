@@ -71,6 +71,12 @@ import React, { useEffect, useState } from "react";
 export default function BrowsePage() {
   const supabase = useSupabaseClient();
   const [searchTerm, setSearchTerm] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [marketplaceFilter, setMarketplaceFilter] = useState("");
+  const [blockchainFilter, setBlockchainFilter] = useState("");
+  const [currencyFilter, setCurrencyFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState({ min: 0, max: 1000 });
+  const [showFilters, setShowFilters] = useState(false);
   const [nfts, setNfts] = useState([]);
   const [filteredNfts, setFilteredNfts] = useState([]);
 
@@ -88,8 +94,8 @@ export default function BrowsePage() {
     e.preventDefault();
     const { data, error } = await supabase
       .from("nfts")
-      .select("*")
-      .textSearch("nftName", searchTerm);
+      .select()
+      .ilike("nftName", `%${searchTerm}%`);
     if (!error) {
       setFilteredNfts(data);
     }
@@ -101,7 +107,7 @@ export default function BrowsePage() {
         Browse the art
       </h1>
       <Card>
-        <div className="md:relative flex gap-3 items-center">
+        <div className="md:relative flex items-center">
           <svg
             className="hidden md:block h-6 absolute top-2 left-4 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +131,7 @@ export default function BrowsePage() {
           />
           <button
             type="submit"
-            className="bg-indigo-500 text-white rounded-full py-2 px-3 md:px-4 hover:bg-indigo-600"
+            className="bg-indigo-500 text-white rounded-full ml-3 py-2 px-3 md:px-4 hover:bg-indigo-600"
             onClick={handleSubmit}
           >
             <svg
@@ -144,8 +150,96 @@ export default function BrowsePage() {
             </svg>
             <span className="hidden md:block">Search</span>
           </button>
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="bg-white rounded-full ml-2 py-2 px-2"
+          >
+            <svg
+              className="h-6 text-indigo-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+              />
+            </svg>
+          </button>
         </div>
       </Card>
+      {showFilters && (
+        <Card>
+          <div className="flex flex-wrap -mx-3">
+            <div className="w-1/2 px-3 mb-6">
+              <label className="block text-gray-700 mb-2">Category:</label>
+              <input
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                type="text"
+                placeholder="e.g. art or music"
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2 px-3 mb-6">
+              <label className="block text-gray-700 mb-2">Marketplace:</label>
+              <input
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                type="text"
+                placeholder="e.g. OpenSea"
+                value={marketplaceFilter}
+                onChange={(e) => setMarketplaceFilter(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2 px-3 mb-6">
+              <label className="block text-gray-700 mb-2">Blockchain:</label>
+              <input
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                type="text"
+                placeholder="e.g. ethereum"
+                value={blockchainFilter}
+                onChange={(e) => setBlockchainFilter(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2 px-3 mb-6">
+              <label className="block text-gray-700 mb-2">Currency:</label>
+              <input
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                type="text"
+                placeholder="e.g. ETH or MATIC"
+                value={currencyFilter}
+                onChange={(e) => setCurrencyFilter(e.target.value)}
+              />
+            </div>
+            <div className="w-1/2 px-3 mb-2">
+              <label className="block text-gray-700 mb-2">
+                Price (min, max):
+              </label>
+              <div className="flex">
+                <input
+                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500 mr-2"
+                  type="text"
+                  value={priceFilter.min}
+                  onChange={(e) =>
+                    setPriceFilter({ ...priceFilter, min: e.target.value })
+                  }
+                />
+                <input
+                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                  type="text"
+                  value={priceFilter.max}
+                  onChange={(e) =>
+                    setPriceFilter({ ...priceFilter, max: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </Card>
+      )}
       {/* <div className="mt-8 flex gap-12"> */}
       {filteredNfts?.length > 0
         ? filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
