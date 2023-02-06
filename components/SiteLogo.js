@@ -48,7 +48,7 @@ export default function SiteLogo({ size }) {
             stroke="#6366F1"
           />
         </g>
-        <g clip-path="url(#clip1_20_9)">
+        <g clipPath="url(#clip1_20_9)">
           <path
             d="M180.75 68C180.75 63.7198 177.28 60.25 173 60.25C168.72 60.25 165.25 63.7198 165.25 68C165.25 72.2802 168.72 75.75 173 75.75C177.28 75.75 180.75 72.2802 180.75 68Z"
             fill="white"
