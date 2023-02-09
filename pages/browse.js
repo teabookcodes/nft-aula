@@ -12,6 +12,7 @@ export default function BrowsePage() {
   const [blockchainFilter, setBlockchainFilter] = useState("");
   const [currencyFilter, setCurrencyFilter] = useState("");
   const [priceFilter, setPriceFilter] = useState({ min: 0, max: 9999 });
+  const [sortFilter, setSortFilter] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [nfts, setNfts] = useState([]);
   const [filteredNfts, setFilteredNfts] = useState([]);
@@ -50,6 +51,14 @@ export default function BrowsePage() {
     if (priceFilter.max !== 9999) {
       query = query.lte("price", priceFilter.max);
     }
+
+    if (sortFilter === "Newest") {
+      query = query.order("created_at", { ascending: false });
+    }
+    if (sortFilter === "Oldest") {
+      query = query.order("created_at", { ascending: true });
+    }
+
     const { data, error } = await query;
     if (!error) {
       setFilteredNfts(data);
@@ -168,6 +177,7 @@ export default function BrowsePage() {
                 <option value="MagicEden">MagicEden</option>
                 <option value="Mintable">Mintable</option>
                 <option value="Nifty Gateway">Nifty Gateway</option>
+                <option value="OnePlanet NFT">OnePlanet NFT</option>
                 <option value="OpenSea">OpenSea</option>
                 <option value="Rarible">Rarible</option>
                 <option value="SuperRare">SuperRare</option>
@@ -236,6 +246,18 @@ export default function BrowsePage() {
                   }
                 />
               </div>
+            </div>
+            <div className="w-1/2 px-3 mb-6">
+              <label className="block text-gray-700 mb-2">Sort by:</label>
+              <select
+                className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                value={sortFilter}
+                onChange={(e) => setSortFilter(e.target.value)}
+              >
+                <option value="">Default</option>
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+              </select>
             </div>
           </div>
         </Card>
