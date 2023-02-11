@@ -30,7 +30,6 @@ export default function SearchCard() {
   return (
     <Card>
       <SearchForm />
-    </Card>
-    
+    </Card>   
   );
 }

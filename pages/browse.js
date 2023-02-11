@@ -70,7 +70,7 @@ export default function BrowsePage() {
       <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Browse the art
       </h1>
-      <Card>
+      <Card marginBottom={true}>
         <div className="md:relative flex items-center">
           <svg
             className="hidden md:block h-6 absolute top-2 left-4 text-gray-400"
@@ -177,6 +177,7 @@ export default function BrowsePage() {
                 <option value="MagicEden">MagicEden</option>
                 <option value="Mintable">Mintable</option>
                 <option value="Nifty Gateway">Nifty Gateway</option>
+                <option value="Objkt.com">Objkt.com</option>
                 <option value="OnePlanet NFT">OnePlanet NFT</option>
                 <option value="OpenSea">OpenSea</option>
                 <option value="Rarible">Rarible</option>
@@ -247,10 +248,10 @@ export default function BrowsePage() {
                 />
               </div>
             </div>
-            <div className="w-1/2 px-3 mb-6">
+            <div className="w-1/2 px-3 mb-2">
               <label className="block text-gray-700 mb-2">Sort by:</label>
               <select
-                className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full md:w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
                 value={sortFilter}
                 onChange={(e) => setSortFilter(e.target.value)}
               >
@@ -259,19 +260,19 @@ export default function BrowsePage() {
                 <option value="Oldest">Oldest</option>
               </select>
             </div>
+            <div className="w-1/2 px-3 mb-2">{/* Reset filters button */}</div>
           </div>
         </Card>
       )}
-      {/* <div className="mt-8 flex gap-12"> */}
-      {filteredNfts?.length > 0 ? (
-        filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
-      ) : filteredNfts && filteredNfts.length === 0 ? (
-        <div>No NFTs found based on the current filters.</div>
-      ) : (
-        nfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
-      )}
-
-      {/* </div> */}
+      <div className="mt-4 md:mt-6 grid md:grid-cols-2 gap-4">
+        {filteredNfts?.length > 0 ? (
+          filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+        ) : filteredNfts && filteredNfts.length === 0 ? (
+          <div>No NFTs found based on the current filters.</div>
+        ) : (
+          nfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+        )}
+      </div>
     </Layout>
   );
 }

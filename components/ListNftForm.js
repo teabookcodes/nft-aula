@@ -186,6 +186,7 @@ export default function UploadForm() {
           <option value="MagicEden">MagicEden</option>
           <option value="Mintable">Mintable</option>
           <option value="Nifty Gateway">Nifty Gateway</option>
+          <option value="Objkt.com">Objkt.com</option>
           <option value="OnePlanet NFT">OnePlanet NFT</option>
           <option value="OpenSea">OpenSea</option>
           <option value="Rarible">Rarible</option>

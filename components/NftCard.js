@@ -93,7 +93,7 @@ export default function NftCard({
           <h3 className="text-base mb-2">
             <span className="font-semibold text-aulaGray">{collection}</span>
           </h3>
-          <p className="text-sm mb-2 text-gray-500">{description}</p>
+          {/* <p className="text-sm mb-2 text-gray-500">{description}</p> */}
           <h3 className="text-base">
             Category:{" "}
             <span className="font-semibold text-aulaGray">{category}</span>
@@ -249,7 +249,7 @@ export default function NftCard({
             className="w-full"
             src={nftImage}
             alt={nftName}
-            title={nftName}
+            title={description}
           />
         )}
         <div className="relative text-right">
