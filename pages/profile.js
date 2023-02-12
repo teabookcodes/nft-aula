@@ -1,81 +1,89 @@
-// import Link from "next/link";
-// import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import NftCard from "../components/NftCard";
+import Router from "next/router";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 
 export default function ProfilePage() {
-  //   const router = useRouter();
-  //   const { asPath: pathname } = router;
-
-  // const isNfts = true;
   const supabase = useSupabaseClient();
   const session = useSession();
 
   const [userId, setUserId] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [upload, setUpload] = useState("");
-  const [isUploading, setIsUploading] = useState(false);
   const [nfts, setNfts] = useState([]);
 
   useEffect(() => {
-    if (!session) {
+    // if (!session) {
+    //   Router.push("/login");
+    // }
+
+    if (!session?.user?.id) {
       return;
     } else {
       setUserId(session.user.id);
       setUserEmail(session.user.email);
     }
-  }, [session?.user?.id, session?.user?.email]);
-
-  async function addNftImage(e) {
-    const files = e.target.files;
-    if (files.length > 0) {
-      setIsUploading(true);
-      for (const file of files) {
-        const newName = Date.now() + file.name;
-        const result = await supabase.storage
+    supabase
+      .from("nfts")
+      .select()
+      .eq("author", session.user.id)
+      .then((result) => {
+        const nftsIds = result.data.map((item) => item.id);
+        supabase
           .from("nfts")
-          .upload(newName, file);
-        if (result.data) {
-          const url =
-            process.env.NEXT_PUBLIC_SUPABASE_URL +
-            "/storage/v1/object/public/nfts/" +
-            result.data.path;
-          setUpload(url);
-        }
-      }
-      setIsUploading(false);
-    }
-  }
+          .select("*")
+          .in("id", nftsIds)
+          .then((result) => setNfts(result.data));
+      });
+  }, [session?.user?.id, session?.user?.email]);
 
   return (
     <Layout>
       <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
-        My profile
+        Profile
       </h1>
-      <Card>
-        <div className="flex gap-3">
-          <div>
-            <img
-              className="w-24 w-full rounded-md"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-              alt="Profile picture"
-            />
+      {!session && (
+        <Card>
+          <p>You must login first to view your profile.</p>
+        </Card>
+      )}
+      {session && (
+        <Card marginBottom={true}>
+          <div className="flex gap-3">
+            <div>
+              <img
+                className="w-24 w-full rounded-md"
+                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                alt="Profile picture"
+              />
+            </div>
+            <div>
+              <p>
+                <span className="font-semibold text-aulaBlack">User ID:</span>{" "}
+                {userId}
+              </p>
+              <p>
+                <span className="font-semibold text-aulaBlack">Email:</span>{" "}
+                {userEmail}
+              </p>
+            </div>
           </div>
-          <div>
-            <p>
-              <span className="font-semibold text-aulaBlack">UserID:</span>{" "}
-              {userId}
-            </p>
-            <p>
-              <span className="font-semibold text-aulaBlack">Email:</span>{" "}
-              {userEmail}
-            </p>
+        </Card>
+      )}
+      {session && (
+        <div>
+          <h3 className="text-2xl mb-4 text-gray-800 text-left">My NFTs:</h3>
+          <div className="mt-4 md:mt-6 grid md:grid-cols-2 gap-4">
+            {nfts.length > 0 &&
+              nfts.map((nft) => (
+                <div key={nft.id}>
+                  <NftCard key={nft.created_at} {...nft} />
+                </div>
+              ))}
           </div>
         </div>
-      </Card>
+      )}
     </Layout>
   );
 }

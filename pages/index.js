@@ -16,9 +16,9 @@ export default function Home() {
     }
   }, [session?.user?.email]);
 
-  if (!session) {
-    return <LoginPage />;
-  }
+  // if (!session) {
+  //   return <LoginPage />;
+  // }
 
   return (
     <Layout>
@@ -26,10 +26,18 @@ export default function Home() {
         Home
       </h1>
       <Card>
-        <p>
-          Hello,{" "}
-          <span className="font-semibold text-aulaBlack">{userEmail}</span>!
-        </p>
+        {session && (
+          <p>
+            Hello,{" "}
+            <span className="font-semibold text-aulaBlack">{userEmail}</span>!
+          </p>
+        )}
+        {!session && (
+          <p>
+            Welcome to the
+            <span className="font-semibold text-aulaBlack"> NFTaula</span>!
+          </p>
+        )}
       </Card>
     </Layout>
   );

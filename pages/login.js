@@ -3,8 +3,12 @@ import Card from "../components/Card";
 import SiteLogo from "../components/SiteLogo";
 import { Auth } from "@supabase/auth-ui-react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useSession } from "@supabase/auth-helpers-react";
+import Router from "next/router";
+import { useEffect } from "react";
 
 export default function LoginPage() {
+  const session = useSession();
   const supabaseClient = useSupabaseClient();
 
   const customTheme = {
@@ -63,6 +67,12 @@ export default function LoginPage() {
       // transitions: {},
     },
   };
+
+  useEffect(() => {
+    if (session) {
+      Router.push("/");
+    }
+  }, [session]);
 
   return (
     <Layout hideNavigation={true}>
