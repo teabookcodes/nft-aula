@@ -13,9 +13,9 @@ export default function NavigationCard() {
   const { asPath: pathname } = router;
 
   const activeElementClasses =
-    "text-sm md:text-md flex items-center md:gap-3 py-3 my-1 md:-mx-1 px-3 md:px-4 bg-aulaBlack text-white rounded-full shadow-md shadow-gray-300";
+    "text-sm md:text-md flex items-center p-2 my-2 bg-aulaBlack text-white rounded-full shadow-md shadow-gray-300";
   const nonActiveElementClasses =
-    "text-sm md:text-md flex items-center md:gap-3 py-2 my-2 px-2 hover:bg-aulaBlack hover:bg-opacity-10 rounded-full transition-all hover:scale-110 hover:shadow-md shadow-gray-300";
+    "text-sm md:text-md flex items-center p-2 my-2 hover:bg-aulaBlack hover:bg-opacity-10 rounded-full transition-all hover:scale-110 hover:shadow-md shadow-gray-300";
 
   async function logout() {
     await supabase.auth.signOut();
@@ -24,8 +24,8 @@ export default function NavigationCard() {
 
   return (
     <Card noPadding={true} marginBottom={true}>
-      <div className="flex md:w-20 justify-center items-center md:block rounded-md shadow-md shadow-gray-500 md:shadow-none">
-        <div className="px-4 py-2 flex gap-4 items-center justify-between md:block">
+      <div className="flex justify-center items-center md:block rounded-md shadow-md shadow-gray-500 md:shadow-none">
+        <div className="px-2 py-2 flex gap-4 items-center justify-between md:block mx-2">
           {/* <div className="ml-2 px-2 mt-2 mb-4 hidden md:block">
             <Link href="/">
               <SiteLogo size={"sm"} />
