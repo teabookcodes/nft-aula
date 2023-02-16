@@ -77,10 +77,10 @@ export default function LoginPage() {
   return (
     <Layout hideNavigation={true}>
       <div className="h-screen flex items-center">
-        <div className="max-w-xs mx-auto grow -mt-24">
-          <div className="flex justify-center mt-8 md:mt-16 mb-4">
+        <div className="max-w-xs mx-auto grow -mt-36">
+          {/* <div className="flex justify-center mt-8 md:mt-16 mb-4">
             <SiteLogo />
-          </div>
+          </div> */}
           <Card noPadding={true}>
             <div className="px-4 py-2 text-center">
               <Auth

@@ -67,9 +67,9 @@ export default function BrowsePage() {
 
   return (
     <Layout>
-      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
+      {/* <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Browse the art
-      </h1>
+      </h1> */}
       <Card marginBottom={true}>
         <div className="md:relative flex items-center">
           <svg
@@ -264,7 +264,7 @@ export default function BrowsePage() {
           </div>
         </Card>
       )}
-      <div className="mt-4 md:mt-6 grid md:grid-cols-2 gap-4">
+      <div className="mt-4 md:mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filteredNfts?.length > 0 ? (
           filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
         ) : filteredNfts && filteredNfts.length === 0 ? (

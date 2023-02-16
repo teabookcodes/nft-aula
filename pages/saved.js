@@ -29,9 +29,9 @@ export default function SavedNftsPage() {
 
   return (
     <Layout>
-      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
+      {/* <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Saved NFTs
-      </h1>
+      </h1> */}
       {!session && (
         <Card>
           <p>You must login first to view your saved NFTs.</p>

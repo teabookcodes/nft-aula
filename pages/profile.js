@@ -40,9 +40,9 @@ export default function ProfilePage() {
 
   return (
     <Layout>
-      <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
+      {/* <h1 className="text-4xl mb-4 text-gray-800 text-center md:text-left">
         Profile
-      </h1>
+      </h1> */}
       {!session && (
         <Card>
           <p>You must login first to view your profile.</p>
@@ -73,8 +73,8 @@ export default function ProfilePage() {
       )}
       {session && (
         <div>
-          <h3 className="text-2xl mb-4 text-gray-800 text-left">My NFTs:</h3>
-          <div className="mt-4 md:mt-6 grid md:grid-cols-2 gap-4">
+          <h3 className="text-2xl text-center font-semibold mt-8 text-aulaBlack">Your NFTs:</h3>
+          <div className="mt-4 grid md:grid-cols-3 lg:grid-flow-cols-4 gap-4">
             {nfts.length > 0 &&
               nfts.map((nft) => (
                 <div key={nft.id}>
