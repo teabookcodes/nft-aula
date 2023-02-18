@@ -21,7 +21,7 @@ export default function Footer() {
                 className={
                 pathname === "/terms-and-conditions" ? "ml-2 text-sm font-semibold text-aulaBlack" : "ml-2 text-sm font-semibold text-white"
                 }>Terms and Conditions</Link>
-                           <span className="ml-8 text-sm text-white">&copy; 2023 NFTaula.io</span>
+                           <span className="ml-8 text-sm text-white">© 2023 NFTaula.io</span>
             </div>
       </div>
     );
