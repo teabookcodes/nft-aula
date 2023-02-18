@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import Card from "../components/Card";
 import NftCard from "../components/NftCard";
 import Router from "next/router";
+import Footer from "../components/Footer";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 
@@ -84,6 +85,7 @@ export default function ProfilePage() {
           </div>
         </div>
       )}
+      <Footer />
     </Layout>
   );
 }

@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import ListNftForm from "../components/ListNftForm";
+import Footer from "../components/Footer";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
           <ListNftForm />
         </Card>
       )}
+      <Footer />
     </Layout>
   );
 }

@@ -135,12 +135,12 @@ export default function NftCard({
     setDropdownOpen(false);
   }
 
+  // ALERT BN!VXJ HCBXJm!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   async function unsaveNft() {
     await supabase
       .from("saved_nfts")
-      .delete()
-      .eq("nft_id", id)
-      .eq("user_id", session.user.id)
+      .delete("*")
+      .filter("nft_id", "eq", id)
       .then((result) => {
         setIsSaved(false);
       });

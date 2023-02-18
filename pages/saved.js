@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import NftCard from "../components/NftCard";
 import Card from "../components/Card";
+import Footer from "../components/Footer";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 
@@ -23,6 +24,7 @@ export default function SavedNftsPage() {
           .from("nfts")
           .select("*")
           .in("id", nftsIds)
+          .order("created_at", { ascending: false })
           .then((result) => setNfts(result.data));
       });
   }, [supabase, session?.user?.id]);
@@ -38,7 +40,7 @@ export default function SavedNftsPage() {
         </Card>
       )}
       {session && (
-        <div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {nfts.length > 0 &&
             nfts.map((nft) => (
               <div key={nft.id}>
@@ -47,6 +49,7 @@ export default function SavedNftsPage() {
             ))}
         </div>
       )}
+      <Footer />
     </Layout>
   );
 }

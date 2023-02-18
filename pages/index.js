@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
+import Footer from "../components/Footer";
 import { useSession } from "@supabase/auth-helpers-react";
-import LoginPage from "./login";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -15,10 +15,6 @@ export default function Home() {
       setUserEmail(session.user.email);
     }
   }, [session?.user?.email]);
-
-  // if (!session) {
-  //   return <LoginPage />;
-  // }
 
   return (
     <Layout>
@@ -39,6 +35,7 @@ export default function Home() {
           </p>
         )}
       </Card>
+      <Footer />
     </Layout>
   );
 }
