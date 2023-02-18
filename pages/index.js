@@ -14,7 +14,7 @@ export default function Home() {
     } else {
       setUserEmail(session.user.email);
     }
-  }, [session?.user?.email]);
+  }, [session?.user?.email, session]);
 
   return (
     <Layout>

@@ -7,8 +7,6 @@ export default function PrivacyPolicyPage() {
         <Layout>
             <Card>
                 <h1 className="text-xl font-semibold text-aulaBlack">Privacy Policy</h1>
-                {/* <h2>GENERAL TERMS AND CONDITIONS OF USE FOR THE WEBSITE WWW.NFTAULA.IO</h2>
-<p className="block mt-4 mb-2 font-semibold">Introduction</p> className="block mt-4 mb-2 font-semibold"*/}
 
 <h2>PRIVACY POLICY FOR NFTAULA.IO</h2>
 
@@ -22,16 +20,16 @@ Our website does not allow the direct sale or purchase of NFTs.
 NFT creators can show their NFTs here (category, blockchain, currency, and price) along with links to their NFT website, a link to their marketplace collection, a Twitter link, and a link to a marketplace where NFTs can be purchased.
 
 <p className="block mt-4 mb-2 font-semibold">PERSONAL INFORMATION COLLECTED</p>
-When you visit NFTaula.io, we gather certain information about your device, such as information about your web browser, IP address, time zone, and any cookies stored on your device. This information is referred to as "Device Information".
+When you visit NFTaula.io, we gather certain information about your device, such as information about your web browser, IP address, time zone, and any cookies stored on your device. This information is referred to as &quot;Device Information&quot;.
 <br />
 <br />
 Additionally, as you browse our website, we monitor the NFTs or web pages you view, the sources that led you to our site, and your interactions with our website.
 <br />
 <br />
-When you register on our website, we also collect additional information such as your name, email address, or cryptocurrency wallet address. This information is referred to as "Registration Information".
+When you register on our website, we also collect additional information such as your name, email address, or cryptocurrency wallet address. This information is referred to as &quot;Registration Information&quot;.
 <br />
 <br />
-The term "Personal Information" in this Privacy Policy encompasses both Device Information and Registration Information.
+The term &quot;Personal Information&quot; in this Privacy Policy encompasses both Device Information and Registration Information.
 <br />
 <br />
 We use the Device Information we collect to evaluate potential risks and detect fraud, and to enhance and optimize our website.
