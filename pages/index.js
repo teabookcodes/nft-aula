@@ -45,7 +45,7 @@ NFT creators will showcase their NFTs here, including links to marketplaces wher
 <br />
 You can also use advanced searching by Category, Marketplace, Blockchain, Currency, or Price (min, max).
 
-If you're interested in any NFT, you can save it to your favorites and return to it anytime.</p>
+If you are interested in any NFT, you can save it to your favorites and return to it anytime.</p>
 
 <p className="block mt-2 font-semibold">Enjoy the hunt! 🔍💰</p>
 
