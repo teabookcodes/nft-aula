@@ -1,6 +1,5 @@
 import Card from "../components/Card";
 import Layout from "../components/Layout";
-import Footer from "../components/Footer";
 
 export default function TermsAndConditionsPage() {
     return (
@@ -57,7 +56,6 @@ If you have any questions or comments regarding these Terms and Conditions, plea
 <p className="block mt-4 mb-2 font-semibold">These Terms and Conditions are valid as of 01.02.2023</p>
 
             </Card>
-            <Footer />
         </Layout>
     )
 }

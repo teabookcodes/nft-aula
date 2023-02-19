@@ -1,5 +1,4 @@
 import Card from "../components/Card";
-import Footer from "../components/Footer";
 import Layout from "../components/Layout";
 import Link from "next/link";
 
@@ -21,7 +20,6 @@ If you like the NFTaula site and would like us supported, you can now contribute
 
                 
             </Card>
-            <Footer />
         </Layout>
     );
 } 

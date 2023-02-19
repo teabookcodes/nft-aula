@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
 import NftCard from "../components/NftCard";
 import Card from "../components/Card";
-import Footer from "../components/Footer";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 
@@ -49,7 +48,6 @@ export default function SavedNftsPage() {
             ))}
         </div>
       )}
-      <Footer />
     </Layout>
   );
 }

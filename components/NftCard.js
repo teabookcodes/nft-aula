@@ -147,7 +147,7 @@ export default function NftCard({
   }
 
   return (
-    <Card marginBottom={pathname === "/saved" ? true : false}>
+    <Card nftCard={pathname === "/saved" || pathname === "/profile" ? false : true} marginBottom={pathname === "/saved" ? true : false}>
       <div className="flex justify-between">
         <div>
           <h3 className="text-xl">

@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+import CookieConsentBar from "../components/CookieConsentBar";
 import { useSession } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 
@@ -35,7 +36,7 @@ export default function Home() {
           </p>
         )}
       </Card>
-      <Footer />
+      <CookieConsentBar />
     </Layout>
   );
 }

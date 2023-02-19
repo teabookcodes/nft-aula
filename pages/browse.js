@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import NftCard from "../components/NftCard";
-import Footer from "../components/Footer";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useEffect, useState } from "react";
 
@@ -274,7 +273,6 @@ export default function BrowsePage() {
           nfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
         )}
       </div>
-      <Footer />
     </Layout>
   );
 }

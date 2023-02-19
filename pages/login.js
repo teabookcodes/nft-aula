@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import SiteLogo from "../components/SiteLogo";
 import { Auth } from "@supabase/auth-ui-react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useSession } from "@supabase/auth-helpers-react";

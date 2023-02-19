@@ -1,6 +1,5 @@
 import Card from "../components/Card";
 import Layout from "../components/Layout";
-import Footer from "../components/Footer";
 
 export default function PrivacyPolicyPage() {
     return (
@@ -55,7 +54,6 @@ This Privacy Policy may be updated from time to time to reflect changes in our p
 For more information about our privacy practices or if you have questions or concerns, please contact us via email at privacypolicy@nftaula.io.
 
             </Card>
-            <Footer />
         </Layout>
     )
 }
