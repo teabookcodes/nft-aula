@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const CookieConsentBar = () => {
   const [consent, setConsent] = useState(false);
