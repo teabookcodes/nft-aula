@@ -28,7 +28,7 @@ const CookieConsentBar = () => {
 
 return (!consent && !decline) && (
     <div className="bg-indigo-500 text-white pt-2 pb-4 md:pb-2 px-4 fixed bottom-16 md:bottom-0 left-0 w-full flex items-center justify-between">
-      <p className="inline-block mr-2">This website uses cookies to ensure you get the best experience on our website. <a href="/cookies" className="underline">Learn more</a></p>
+      <p className="inline-block mr-2">This website uses cookies to ensure you get the best experience on our website. <Link href="/cookies" className="underline">Learn more</Link></p>
       <div>
         <button className="bg-transparent text-white border-2 border-white font-semibold py-1 md:py-2 px-2 md:px-4 rounded-md inline-block mb-2 md:mb-0 mr-2" onClick={handleDecline}>Decline</button>
         <button className="bg-white text-indigo-500 border-2 border-white font-semibold py-1 md:py-2 px-2 md:px-4 rounded-md inline-block" onClick={handleConsent}>I got it</button>
