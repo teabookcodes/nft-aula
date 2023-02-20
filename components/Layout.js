@@ -27,7 +27,7 @@ export default function Layout({ children, hideNavigation }) {
 
         <div className={rightColumnClasses}>{children}</div>
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 }

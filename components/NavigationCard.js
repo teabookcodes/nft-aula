@@ -1,7 +1,6 @@
 import Router, { useRouter } from "next/router";
 import Link from "next/link";
 import Card from "./Card";
-import SiteLogo from "./SiteLogo";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useSession } from "@supabase/auth-helpers-react";
 

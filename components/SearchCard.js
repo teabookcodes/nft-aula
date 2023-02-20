@@ -1,5 +1,4 @@
 import Card from "./Card";
-import NftCard from "./NftCard";
 import SearchForm from "./SearchForm";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
@@ -30,6 +29,6 @@ export default function SearchCard() {
   return (
     <Card>
       <SearchForm />
-    </Card>   
+    </Card>
   );
 }
