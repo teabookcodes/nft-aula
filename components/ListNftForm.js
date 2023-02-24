@@ -112,8 +112,8 @@ export default function UploadForm() {
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 mb-2">Description:</label>
-        <input
-          className="w-full rounded-full px-4 py-2 bg-gray-50 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+        <textarea
+          className="w-full rounded-md px-4 py-2 bg-gray-50 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -181,6 +181,7 @@ export default function UploadForm() {
           onChange={(e) => setMarketplace(e.target.value)}
         >
           <option value="">Please select a marketplace</option>
+          <option value="Blur">Blur</option>
           <option value="Foundation">Foundation</option>
           <option value="KnownOrigin">KnownOrigin</option>
           <option value="MagicEden">MagicEden</option>

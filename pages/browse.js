@@ -172,6 +172,7 @@ export default function BrowsePage() {
                 onChange={(e) => setMarketplaceFilter(e.target.value)}
               >
                 <option value="">Please select a marketplace</option>
+                <option value="Blur">Blur</option>
                 <option value="Foundation">Foundation</option>
                 <option value="KnownOrigin">KnownOrigin</option>
                 <option value="MagicEden">MagicEden</option>
