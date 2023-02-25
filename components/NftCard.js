@@ -176,7 +176,7 @@ export default function NftCard({
             </span>
           </h3>
         </div>
-        {author == session.user.id && (
+        {session && author == session?.user?.id && (
           <div className="relative">
             <button className="text-gray-400" onClick={openDropdown}>
               <svg

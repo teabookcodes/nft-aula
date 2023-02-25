@@ -21,7 +21,7 @@ export default function BrowsePage() {
     supabase
       .from("nfts")
       .select("*")
-      .order("created_at", { ascending: true })
+      .order("created_at", { ascending: false })
       .then((result) => {
         setNfts(result.data);
       });
