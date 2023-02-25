@@ -1,5 +1,6 @@
 import Card from "./Card";
 import ClickOutHandler from "react-clickout-handler";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
@@ -150,13 +151,15 @@ export default function NftCard({
     <Card nftCard={pathname === "/saved" || pathname === "/profile" ? false : true} marginBottom={pathname === "/saved" ? true : false}>
       <div className="flex justify-between">
         <div>
+          {/* <Link href="/nft-detail"> */}
           <h3 className="text-xl">
             <span className="font-semibold text-aulaBlack">{nftName}</span>
           </h3>
+          {/* </Link> */}
           <h3 className="text-base mb-2">
             <span className="font-semibold text-aulaGray">{collection}</span>
           </h3>
-          {/* <p className="text-sm mb-2 text-gray-500">{description}</p> */}
+          <p className="text-sm mb-2 text-gray-500">{description}</p>
           <h3 className="text-base">
             Category:{" "}
             <span className="font-semibold text-aulaGray">{category}</span>
@@ -337,7 +340,6 @@ export default function NftCard({
             className="w-full"
             src={nftImage}
             alt={nftName}
-            title={description}
           />
         )}
         <div className="relative text-right">
