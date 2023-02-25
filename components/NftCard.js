@@ -127,9 +127,6 @@ export default function NftCard({
   // }
 
   async function toggleDelete() {
-    if (isSaved) {
-      await unsaveNft();
-    }
     if (canDelete) {
       const { error } = await supabase.from("nfts").delete().eq("id", id);
     }
@@ -179,7 +176,7 @@ export default function NftCard({
             </span>
           </h3>
         </div>
-        {session && (
+        {author == session.user.id && (
           <div className="relative">
             <button className="text-gray-400" onClick={openDropdown}>
               <svg
