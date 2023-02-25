@@ -12,7 +12,7 @@ export default function Home() {
     if (!session) {
       return;
     } else {
-      setUserEmail(session.user.email);
+      setUserEmail(session?.user?.email);
     }
   }, [session?.user?.email, session]);
 
