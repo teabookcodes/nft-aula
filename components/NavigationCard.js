@@ -102,7 +102,7 @@ export default function NavigationCard() {
                 </svg>
                 <span className="hidden">List new NFT</span>
               </Link>
-              <Link
+              {/* <Link
                 href="/saved"
                 className={
                   pathname === "/saved"
@@ -125,7 +125,7 @@ export default function NavigationCard() {
                   />
                 </svg>
                 <span className="hidden">Saved NFTs</span>
-              </Link>
+              </Link> */}
               <Link
                 href="/profile"
                 className={

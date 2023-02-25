@@ -36,18 +36,18 @@ export default function NftCard({
   useEffect(() => {
     if (session?.user?.id) {
       const fetchData = () => {
-        supabase
-          .from("saved_nfts")
-          .select()
-          .eq("nft_id", id)
-          .eq("user_id", session.user.id)
-          .then((result) => {
-            if (result.data && result.data.length > 0) {
-              setIsSaved(true);
-            } else {
-              setIsSaved(false);
-            }
-          });
+        // supabase
+        //   .from("saved_nfts")
+        //   .select()
+        //   .eq("nft_id", id)
+        //   .eq("user_id", session.user.id)
+        //   .then((result) => {
+        //     if (result.data && result.data.length > 0) {
+        //       setIsSaved(true);
+        //     } else {
+        //       setIsSaved(false);
+        //     }
+        //   });
 
         supabase
           .from("nfts")
@@ -79,31 +79,31 @@ export default function NftCard({
     setDropdownOpen(false);
   }
 
-  function toggleSave() {
-    if (isSaved) {
-      supabase
-        .from("saved_nfts")
-        .delete()
-        .eq("nft_id", id)
-        .eq("user_id", session.user.id)
-        .then((result) => {
-          setIsSaved(false);
-          setDropdownOpen(false);
-        });
-    }
-    if (!isSaved) {
-      supabase
-        .from("saved_nfts")
-        .insert({
-          user_id: session.user.id,
-          nft_id: id,
-        })
-        .then((result) => {
-          setIsSaved(true);
-          setDropdownOpen(false);
-        });
-    }
-  }
+  // function toggleSave() {
+  //   if (isSaved) {
+  //     supabase
+  //       .from("saved_nfts")
+  //       .delete()
+  //       .eq("nft_id", id)
+  //       .eq("user_id", session.user.id)
+  //       .then((result) => {
+  //         setIsSaved(false);
+  //         setDropdownOpen(false);
+  //       });
+  //   }
+  //   if (!isSaved) {
+  //     supabase
+  //       .from("saved_nfts")
+  //       .insert({
+  //         user_id: session.user.id,
+  //         nft_id: id,
+  //       })
+  //       .then((result) => {
+  //         setIsSaved(true);
+  //         setDropdownOpen(false);
+  //       });
+  //   }
+  // }
 
   function toggleEdit() {
     return;
@@ -137,15 +137,15 @@ export default function NftCard({
   }
 
   // ALERT BN!VXJ HCBXJm!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  async function unsaveNft() {
-    await supabase
-      .from("saved_nfts")
-      .delete("*")
-      .filter("nft_id", "eq", id)
-      .then((result) => {
-        setIsSaved(false);
-      });
-  }
+  // async function unsaveNft() {
+  //   await supabase
+  //     .from("saved_nfts")
+  //     .delete("*")
+  //     .filter("nft_id", "eq", id)
+  //     .then((result) => {
+  //       setIsSaved(false);
+  //     });
+  // }
 
   return (
     <Card nftCard={pathname === "/saved" || pathname === "/profile" ? false : true} marginBottom={pathname === "/saved" ? true : false}>
@@ -205,7 +205,7 @@ export default function NftCard({
               <div className="relative">
                 {dropdownOpen && (
                   <div className="absolute -right-6 bg-white shadow-md shadow-gray-300 p-3 rounded-md border border-gray-100 w-52">
-                    <button onClick={toggleSave} className="w-full">
+                    {/* <button onClick={toggleSave} className="w-full">
                       <span className="flex gap-3 py-2 hover:bg-aulaBlack hover:text-white px-4 -mx-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300">
                         {isSaved && (
                           <svg
@@ -243,7 +243,7 @@ export default function NftCard({
 
                         {isSaved ? "Unsave" : "Save NFT"}
                       </span>
-                    </button>
+                    </button> */}
                     {/* <a
                             href=""
                             className="flex gap-3 py-2 my-2 hover:bg-aulaBlack hover:text-white -mx-4 px-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300"
