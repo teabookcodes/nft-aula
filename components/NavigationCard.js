@@ -17,7 +17,7 @@ export default function NavigationCard() {
     "text-sm md:text-md flex items-center p-2 my-2 hover:bg-aulaBlack hover:bg-opacity-10 rounded-full transition-all hover:scale-110 hover:shadow-md shadow-gray-300";
 
   async function logout() {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
     Router.push("/");
   }
 

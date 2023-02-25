@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import { Auth } from "@supabase/auth-ui-react";
+// import { Auth } from "@supabase/auth-ui-react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useSession } from "@supabase/auth-helpers-react";
 import Router from "next/router";
@@ -8,64 +8,70 @@ import { useEffect } from "react";
 
 export default function LoginPage() {
   const session = useSession();
-  const supabaseClient = useSupabaseClient();
+  const supabase = useSupabaseClient();
 
-  const customTheme = {
-    default: {
-      colors: {
-        brand: "#6366F1",
-        brandAccent: "#6366F1",
-        brandButtonText: "white",
-        defaultButtonBackground: "white",
-        defaultButtonBorder: "lightgray",
-        defaultButtonText: "gray",
-        dividerBackground: "#eaeaea",
-        inputBackground: "transparent",
-        inputBorder: "lightgray",
-        inputText: "black",
-        inputPlaceholder: "darkgray",
-      },
-      space: {
-        spaceSmall: "4px",
-        spaceMedium: "8px",
-        spaceLarge: "16px",
-        labelBottomMargin: "8px",
-        anchorBottomMargin: "4px",
-        emailInputSpacing: "4px",
-        socialAuthSpacing: "4px",
-        buttonPadding: "10px 15px",
-        inputPadding: "10px 15px",
-      },
-      fontSizes: {
-        baseBodySize: "13px",
-        baseInputSize: "14px",
-        baseLabelSize: "14px",
-        baseButtonSize: "14px",
-      },
-      fonts: {
-        bodyFontFamily: `Poppins, sans-serif`,
-        buttonFontFamily: `Poppins, sans-serif`,
-        inputFontFamily: `Poppins, sans-serif`,
-        labelFontFamily: `Poppins, sans-serif`,
-      },
-      // fontWeights: {},
-      // lineHeights: {},
-      // letterSpacings: {},
-      // sizes: {},
-      borderWidths: {
-        buttonBorderWidth: "1px",
-        inputBorderWidth: "1px",
-      },
-      // borderStyles: {},
-      radii: {
-        borderRadiusButton: "50px",
-        inputBorderRadius: "50px",
-      },
-      // shadows: {},
-      // zIndices: {},
-      // transitions: {},
-    },
-  };
+  async function signInWithGoogle() {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+    })
+  }
+
+  // const customTheme = {
+  //   default: {
+  //     colors: {
+  //       brand: "#6366F1",
+  //       brandAccent: "#6366F1",
+  //       brandButtonText: "white",
+  //       defaultButtonBackground: "white",
+  //       defaultButtonBorder: "lightgray",
+  //       defaultButtonText: "gray",
+  //       dividerBackground: "#eaeaea",
+  //       inputBackground: "transparent",
+  //       inputBorder: "lightgray",
+  //       inputText: "black",
+  //       inputPlaceholder: "darkgray",
+  //     },
+  //     space: {
+  //       spaceSmall: "4px",
+  //       spaceMedium: "8px",
+  //       spaceLarge: "16px",
+  //       labelBottomMargin: "8px",
+  //       anchorBottomMargin: "4px",
+  //       emailInputSpacing: "4px",
+  //       socialAuthSpacing: "4px",
+  //       buttonPadding: "10px 15px",
+  //       inputPadding: "10px 15px",
+  //     },
+  //     fontSizes: {
+  //       baseBodySize: "13px",
+  //       baseInputSize: "14px",
+  //       baseLabelSize: "14px",
+  //       baseButtonSize: "14px",
+  //     },
+  //     fonts: {
+  //       bodyFontFamily: `Poppins, sans-serif`,
+  //       buttonFontFamily: `Poppins, sans-serif`,
+  //       inputFontFamily: `Poppins, sans-serif`,
+  //       labelFontFamily: `Poppins, sans-serif`,
+  //     },
+  //     // fontWeights: {},
+  //     // lineHeights: {},
+  //     // letterSpacings: {},
+  //     // sizes: {},
+  //     borderWidths: {
+  //       buttonBorderWidth: "1px",
+  //       inputBorderWidth: "1px",
+  //     },
+  //     // borderStyles: {},
+  //     radii: {
+  //       borderRadiusButton: "50px",
+  //       inputBorderRadius: "50px",
+  //     },
+  //     // shadows: {},
+  //     // zIndices: {},
+  //     // transitions: {},
+  //   },
+  // };
 
   useEffect(() => {
     if (session) {
@@ -82,14 +88,18 @@ export default function LoginPage() {
           </div> */}
           <Card noPadding={true}>
             <div className="px-4 py-2 text-center">
-              <Auth
+              {/* <Auth
                 redirectTo="http://localhost:3000/"
                 theme="default"
                 appearance={{ theme: customTheme }}
                 supabaseClient={supabaseClient}
                 providers={[]}
                 socialLayout="horizontal"
-              />
+              /> */}
+              <button
+                onClick={signInWithGoogle}
+                className="flex w-full gap-4 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-aulaBlack hover:text-white hover:border-b-aulaBlack transition-all hover:scale-110"
+              >Sign in with Google</button>
             </div>
           </Card>
         </div>
