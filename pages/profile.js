@@ -8,7 +8,7 @@ export default function ProfilePage() {
   const supabase = useSupabaseClient();
   const session = useSession();
 
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [nfts, setNfts] = useState([]);
 
@@ -17,7 +17,7 @@ export default function ProfilePage() {
     if (!session?.user?.id) {
       return;
     } else {
-      setUserId(session.user.id);
+      // setUserId(session.user.id);
       setUserEmail(session.user.email);
     }
     supabase
@@ -46,7 +46,7 @@ export default function ProfilePage() {
       )}
       {session && (
         <Card marginBottom={true}>
-          <div className="flex gap-3">
+          <div className="flex gap-4 items-center">
             <div>
               <img
                 className="w-24 rounded-md"
@@ -55,14 +55,14 @@ export default function ProfilePage() {
               />
             </div>
             <div>
-              <p>
+              {/* <p>
                 <span className="font-semibold text-aulaBlack">User ID:</span>{" "}
                 {userId}
-              </p>
-              <p>
-                <span className="font-semibold text-aulaBlack">Email:</span>{" "}
+              </p> */}
+              <h3 className="text-xl font-semibold text-aulaBlack">
+                {/* <span className="font-semibold text-aulaBlack">Email:</span>{" "} */}
                 {userEmail}
-              </p>
+              </h3>
             </div>
           </div>
         </Card>

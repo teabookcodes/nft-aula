@@ -14,9 +14,22 @@ export default function DonatePage() {
                     If you like the NFTaula site and would like us supported, you can now contribute in different cryptocurrencies. Your contributions will help us maintain and improve the site and ensure that the NFT community continues to thrive.
                 </p>
 
-                <p className="block my-4">Thank you for your support! </p>
+                <p className="block my-4 font-semibold">Thank you for your support! </p>
 
                 <Link className="font-semibold text-aulaBlack" href="https://twitter.com/NFTbagari" target="_blank">@NFTbagari</Link>
+
+                <h3 className="text-xl font-semibold mt-8">Support us by sending crypto to any of this adresses:</h3>
+                <p className="mt-4"><span className="font-semibold mr-2">BTC</span>
+                    bc1qzvyvujy44z3y6qz5grlt4w7aq2vnkra2ycssh3</p>
+
+                <p className="mt-4"><span className="font-semibold mr-2">LTC</span>
+                    ltc1qf9t08alecqfp9daw2ykth03pg6knrz9xltm36e</p>
+
+                <p className="mt-4"><span className="font-semibold mr-2">ETH (and all ERC-20 tokens)</span>
+                    0x48CA1C059E9394BeFb7Dc20E7064de73139F7BFd</p>
+
+                <p className="mt-4"><span className="font-semibold mr-2">DOGE</span>
+                    D9obVMZwqknKhGpHzcgwAFa8L5xdm1EcCt</p>
 
 
             </Card>
