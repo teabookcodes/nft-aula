@@ -19,7 +19,11 @@ export default function PrivacyPolicyPage() {
                     </p>
                     <p className="block mb-2">I believe that NFTs have the power to revolutionize the way we think about digital ownership and art.</p>
                     <p className="block mb-2">They offer a unique opportunity for artists to showcase their work in a new and exciting way, and for collectors to own truly one-of-a-kind pieces that can hold value over time.</p>
-                    <p className="block mb-2">Every time I add a new NFT to my collection, I feel a rush of excitement and satisfaction knowing that I own a piece of digital history. I am constantly inspired by the creativity and innovation that I see in the NFT space, and I am thrilled to be a part of this rapidly growing community.</p>
+                    <p className="block mb-4">Every time I add a new NFT to my collection, I feel a rush of excitement and satisfaction knowing that I own a piece of digital history. I am constantly inspired by the creativity and innovation that I see in the NFT space, and I am thrilled to be a part of this rapidly growing community.</p>
+                    <p className="block mb-4">Have a nice day!</p>
+                    <p className="block">With respect</p>
+                    <p className="block mb-2 font-semibold">Ladislav Bagari</p>
+
                 </div>
             </Card>
         </Layout>
