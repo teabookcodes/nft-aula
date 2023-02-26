@@ -61,7 +61,7 @@ export default function Home() {
 
         <h3 className="text-3xl font-semibold text-aulaBlack my-4 text-center">🏆 Welcome to NFTaula.io! 🏆</h3>
 
-        <img className="w-full rounded-md mt-4 mx-auto" src="https://i.seadn.io/gcs/files/e793849eb6d6f78ab7d4f67f0f5daedc.jpg?auto=format&w=1000" alt="Argentina Champion NFT owned by Bagari" title="Argentina Champion NFT owned by Bagari" />
+        <img className="w-full md:w-1/2 rounded-md mt-8 mx-auto" src="https://i.seadn.io/gcs/files/e793849eb6d6f78ab7d4f67f0f5daedc.jpg?auto=format&w=1000" alt="Argentina Champion NFT owned by Bagari" title="Argentina Champion NFT owned by Bagari" />
       </Card>
       <CookieConsentBar />
     </Layout>

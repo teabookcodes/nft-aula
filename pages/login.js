@@ -3,11 +3,21 @@ import Card from "../components/Card";
 import Link from "next/link";
 import Router from "next/router";
 import { useSupabaseClient, useSession } from "@supabase/auth-helpers-react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function LoginPage() {
   const session = useSession();
   const supabase = useSupabaseClient();
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [loginEmail, setLoginEmail] = useState("");
+
+  async function signInWithMagicLink() {
+    let { data, error } = await supabase.auth.signInWithOtp({
+      email: loginEmail,
+    })
+    alert("Magic Link sent to " + loginEmail + " !");
+    setShowOverlay(false);
+  }
 
   async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
@@ -28,19 +38,38 @@ export default function LoginPage() {
           {/* <div className="flex justify-center mt-8 md:mt-16 mb-4">
             <SiteLogo />
           </div> */}
-          <Card noPadding={true}>
+          <button
+            onClick={() => setShowOverlay(!showOverlay)}
+            className="flex w-full gap-4 my-2 py-4 px-8 rounded-md items-center border-2 bg-white shadow-xl shadow-gray-200 border-aulaBg hover:bg-aulaBlack hover:text-white stroke-aulaGray hover:stroke-white  transition-all hover:scale-110"
+          >
+            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 8C3 7.06812 3 6.60218 3.15224 6.23463C3.35523 5.74458 3.74458 5.35523 4.23463 5.15224C4.60218 5 5.06812 5 6 5V5H18V5C18.9319 5 19.3978 5 19.7654 5.15224C20.2554 5.35523 20.6448 5.74458 20.8478 6.23463C21 6.60218 21 7.06812 21 8V16C21 16.9319 21 17.3978 20.8478 17.7654C20.6448 18.2554 20.2554 18.6448 19.7654 18.8478C19.3978 19 18.9319 19 18 19V19H6V19C5.06812 19 4.60218 19 4.23463 18.8478C3.74458 18.6448 3.35523 18.2554 3.15224 17.7654C3 17.3978 3 16.9319 3 16V8Z" stroke="inherit" strokeWidth="2" strokeLinejoin="round"></path> <path d="M4 6L10.683 11.8476C11.437 12.5074 12.563 12.5074 13.317 11.8476L20 6" stroke="inherit" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
+            Sign in with Magic Link</button>
+
+          {showOverlay && (
+            <div className="p-4 bg-white rounded-md shadow-xl shadow-gray-200 border border-1 border-gray-100">
+              <label className="block text-center text-gray-700 mb-4">Your email:</label>
+              <input className="w-full rounded-lg px-4 py-2 bg-gray-50 text-gray-700 border-2 border-aulaGray focus:outline-none focus:border-indigo-500"
+                type="text"
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)} />
+              <button
+                onClick={signInWithMagicLink}
+                className="flex mx-auto gap-4 mt-4 py-2 px-4 rounded-md items-center justify-center text-white bg-aulaBlack transition-all hover:scale-110"
+              >Send Magic Link</button>
+            </div>
+
+          )}
+
+          {!showOverlay && (
             <button
               onClick={signInWithGoogle}
-              className="flex w-full gap-4 p-4 rounded-md items-center justify-center hover:bg-aulaBlack hover:text-white transition-all hover:scale-110"
+              className="flex w-full gap-4 my-2 py-4 px-8 rounded-md items-center border-2 bg-white shadow-xl shadow-gray-200 border-aulaBg hover:bg-aulaBlack hover:text-white fill-aulaGray hover:fill-white transition-all hover:scale-110"
             >
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19.76 10.77L19.67 10.42H12.23V13.58H16.68C16.4317 14.5443 15.8672 15.3974 15.0767 16.0029C14.2863 16.6084 13.3156 16.9313 12.32 16.92C11.0208 16.9093 9.77254 16.4135 8.81999 15.53C8.35174 15.0685 7.97912 14.5191 7.72344 13.9134C7.46777 13.3077 7.33407 12.6575 7.33 12C7.34511 10.6795 7.86792 9.41544 8.79 8.47002C9.7291 7.58038 10.9764 7.08932 12.27 7.10002C13.3779 7.10855 14.4446 7.52101 15.27 8.26002L17.47 6.00002C16.02 4.70638 14.1432 3.9941 12.2 4.00002C11.131 3.99367 10.0713 4.19793 9.08127 4.60115C8.09125 5.00436 7.19034 5.59863 6.43 6.35002C4.98369 7.8523 4.16827 9.85182 4.15152 11.9371C4.13478 14.0224 4.918 16.0347 6.34 17.56C7.12784 18.3449 8.06422 18.965 9.09441 19.3839C10.1246 19.8029 11.2279 20.0123 12.34 20C13.3484 20.0075 14.3479 19.8102 15.2779 19.42C16.2078 19.0298 17.0488 18.4549 17.75 17.73C19.1259 16.2171 19.8702 14.2347 19.83 12.19C19.8408 11.7156 19.8174 11.2411 19.76 10.77Z" fill="#000000"></path> </g></svg>
+              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="inherit" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19.76 10.77L19.67 10.42H12.23V13.58H16.68C16.4317 14.5443 15.8672 15.3974 15.0767 16.0029C14.2863 16.6084 13.3156 16.9313 12.32 16.92C11.0208 16.9093 9.77254 16.4135 8.81999 15.53C8.35174 15.0685 7.97912 14.5191 7.72344 13.9134C7.46777 13.3077 7.33407 12.6575 7.33 12C7.34511 10.6795 7.86792 9.41544 8.79 8.47002C9.7291 7.58038 10.9764 7.08932 12.27 7.10002C13.3779 7.10855 14.4446 7.52101 15.27 8.26002L17.47 6.00002C16.02 4.70638 14.1432 3.9941 12.2 4.00002C11.131 3.99367 10.0713 4.19793 9.08127 4.60115C8.09125 5.00436 7.19034 5.59863 6.43 6.35002C4.98369 7.8523 4.16827 9.85182 4.15152 11.9371C4.13478 14.0224 4.918 16.0347 6.34 17.56C7.12784 18.3449 8.06422 18.965 9.09441 19.3839C10.1246 19.8029 11.2279 20.0123 12.34 20C13.3484 20.0075 14.3479 19.8102 15.2779 19.42C16.2078 19.0298 17.0488 18.4549 17.75 17.73C19.1259 16.2171 19.8702 14.2347 19.83 12.19C19.8408 11.7156 19.8174 11.2411 19.76 10.77Z" fill="inherit"></path> </g></svg>
               Sign in with Google</button>
-            {/* <button
-              onClick={signInWithGoogle}
-              className="flex w-full gap-4 p-4 rounded-md items-center justify-center hover:bg-aulaBlack hover:text-white transition-all hover:scale-110"
-            >Sign in with Twitter</button> */}
-          </Card>
-          <p className="text-sm text-aulaGray mt-4">By registering or signing in, you accept our <Link className="text-aulaBlack" href="/privacy-policy">GDPR and Privacy Policy.</Link></p>
+          )}
+
+          <p className="mt-4 text-sm text-aulaGray text-center">By registering or signing in, you accept our <Link className="text-aulaBlack" href="/privacy-policy">GDPR (for EU) and Privacy Policy.</Link></p>
         </div>
       </div>
     </Layout>
