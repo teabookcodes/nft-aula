@@ -16,6 +16,7 @@ export default function BrowsePage() {
   const [showFilters, setShowFilters] = useState(false);
   const [nfts, setNfts] = useState([]);
   const [filteredNfts, setFilteredNfts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     supabase
@@ -23,7 +24,9 @@ export default function BrowsePage() {
       .select("*")
       .order("created_at", { ascending: false })
       .then((result) => {
-        setNfts(result.data);
+        setNfts(result.data); // Set loading state to false when data is fetched
+        setFilteredNfts(result.data);
+        setIsLoading(false);
       });
   }, [supabase]);
 
@@ -266,12 +269,16 @@ export default function BrowsePage() {
         </Card>
       )}
       <div className="mt-4 md:mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filteredNfts?.length > 0 ? (
-          filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
-        ) : filteredNfts && filteredNfts.length === 0 ? (
-          <div>No NFTs found based on the current filters.</div>
+        {isLoading ? ( // Render loading indicator while data is being fetched
+          <div>Loading NFTs...</div>
         ) : (
-          nfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+          filteredNfts?.length > 0 ? (
+            filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+          ) : filteredNfts && filteredNfts.length === 0 ? (
+            <div>No NFTs found based on the current filters.</div>
+          ) : (
+            nfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+          )
         )}
       </div>
     </Layout>

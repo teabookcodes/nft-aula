@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
                 <p className="mt-4 text-gray-700">
                     As an NFT collector myself, I understand the thrill and excitement of
                     discovering new pieces to add to my collection. However, I also know
-                    how difficult it can be for NFT creators to sell their work. That's
+                    how difficult it can be for NFT creators to sell their work. That&apos;s
                     why I created NFTaula.io - to provide a platform where creators can
                     showcase their work and collectors can easily find and purchase unique
                     pieces.
