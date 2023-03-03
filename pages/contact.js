@@ -1,59 +1,36 @@
-import Card from "../components/Card";
 import Layout from "../components/Layout";
+import { useState } from "react";
 
-export default function PrivacyPolicyPage() {
+const ContactForm = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission here
+    };
+
     return (
         <Layout>
-            <Card>
-                <h1 className="text-xl font-semibold text-aulaBlack">Privacy Policy</h1>
-
-                <h2>PRIVACY POLICY FOR NFTAULA.IO</h2>
-
-                <br />
-                At NFTaula.io, NFT creators can showcase their works and collectors can discover new pieces to add to their collection.
-                <br />
-
-                Our website does not allow the direct sale or purchase of NFTs.
-                <br />
-
-                NFT creators can show their NFTs here (category, blockchain, currency, and price) along with links to their NFT website, a link to their marketplace collection, a Twitter link, and a link to a marketplace where NFTs can be purchased.
-
-                <p className="block mt-4 mb-2 font-semibold">PERSONAL INFORMATION COLLECTED</p>
-                When you visit NFTaula.io, we gather certain information about your device, such as information about your web browser, IP address, time zone, and any cookies stored on your device. This information is referred to as &quot;Device Information&quot;.
-                <br />
-                <br />
-                Additionally, as you browse our website, we monitor the NFTs or web pages you view, the sources that led you to our site, and your interactions with our website.
-                <br />
-                <br />
-                When you register on our website, we also collect additional information such as your name, email address, or cryptocurrency wallet address. This information is referred to as &quot;Registration Information&quot;.
-                <br />
-                <br />
-                The term &quot;Personal Information&quot; in this Privacy Policy encompasses both Device Information and Registration Information.
-                <br />
-                <br />
-                We use the Device Information we collect to evaluate potential risks and detect fraud, and to enhance and optimize our website.
-                <br />
-                <p className="block mt-4 mb-2 font-semibold">SHARING YOUR PERSONAL INFORMATION</p>
-                We do not share your Personal Information with any third parties, except in situations where we are required to comply with applicable laws and regulations, respond to a subpoena, court order, or other legal request, or protect our rights.
-                <br />
-                <p className="block mt-4 mb-2 font-semibold">YOUR RIGHTS</p>
-                If you are a European resident, you have the right to access the Personal Information we hold about you and to request the correction, update, or deletion of your Personal Information.
-                <br />
-                To exercise this right, please reach out to us by email at gdpr@nftaula.io.
-                <br />
-                <p className="block mt-4 mb-2 font-semibold">SECURITY</p>
-                We use various technical, organizational, and physical measures to secure the personal information we collect. Despite our efforts, it is impossible to completely eliminate the risk of unauthorized access to your personal information and using our Service is done so at your own risk.
-                <br />
-                <p className="block mt-4 mb-2 font-semibold">DATA RETENTION</p>
-                If you register on our website, we will retain your information in our records unless you ask us to delete it.
-                <br />
-                <p className="block mt-4 mb-2 font-semibold">UPDATES</p>
-                This Privacy Policy may be updated from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.
-                <br />
-                <p className="block mt-4 mb-2 font-semibold">CONTACT US</p>
-                For more information about our privacy practices or if you have questions or concerns, please contact us via email at privacypolicy@nftaula.io.
-
-            </Card>
+            <form className="max-w-lg mx-auto mt-8" onSubmit={handleSubmit}>
+                <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+                <div className="mb-4">
+                    <label className="block font-semibold mb-2" htmlFor="name">Name</label>
+                    <input className="w-full px-4 py-2 border rounded-md" type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div className="mb-4">
+                    <label className="block font-semibold mb-2" htmlFor="email">Email</label>
+                    <input className="w-full px-4 py-2 border rounded-md" type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className="mb-4">
+                    <label className="block font-semibold mb-2" htmlFor="message">Message</label>
+                    <textarea className="w-full px-4 py-2 border rounded-md" id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                </div>
+                <button className="block mx-auto md:mx-0 bg-aulaBlack text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-600 transition-colors duration-200" type="submit">Submit</button>
+            </form>
         </Layout>
-    )
-}
+    );
+};
+
+export default ContactForm;
