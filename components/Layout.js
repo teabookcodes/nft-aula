@@ -18,7 +18,7 @@ export default function Layout({ children, hideNavigation }) {
           <SiteLogo />
         </div>
       </div>
-      <div className="md:flex max-w-screen-2xl mt-4 mx-auto lg:mx-8 gap-6 md:pr-4 mb-24 md:mb-0">
+      <div className="md:flex max-w-screen-xl mt-4 mx-auto gap-6 md:pr-4 mb-24 md:mb-0">
         {!hideNavigation && (
           <div className="z-50 fixed md:static w-full bottom-0 md:w-24 md:pl-4 -mb-5">
             <NavigationCard />
