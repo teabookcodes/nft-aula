@@ -59,6 +59,15 @@ export default function DonatePage() {
           D9obVMZwqknKhGpHzcgwAFa8L5xdm1EcCt
         </p> */}
 
+      <div className="flex flex-col md:flex-row mt-8 md:mt-0 items-center gap-2">
+        <Link className="block w-28 py-2 px-3 text-sm font-semibold text-white bg-aulaBlack rounded-md hover:bg-indigo-600" href="https://app.ens.domains/name/nftaula.eth/details" target="_blank">
+          NFTaula.eth
+        </Link>
+        <Link className="block w-32 py-2 px-3 text-sm font-semibold text-white bg-aulaBlack rounded-md hover:bg-indigo-600" href="https://etherscan.io/tokens" target="_blank">
+          ERC-20 tokens
+        </Link>
+      </div>
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col mt-8">
           <p className="mx-auto md:ml-32 font-semibold text-aulaBlack">BTC</p>

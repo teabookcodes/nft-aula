@@ -14,7 +14,7 @@ const ContactForm = () => {
     return (
         <Layout>
             <form className="max-w-lg mx-auto mt-8" onSubmit={handleSubmit}>
-                <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+                <h2 className="text-2xl font-semibold text-aulaBlack mb-4">Contact Us</h2>
                 <div className="mb-4">
                     <label className="block font-semibold mb-2" htmlFor="name">Name</label>
                     <input className="w-full px-4 py-2 border rounded-md" type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
