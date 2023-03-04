@@ -70,43 +70,43 @@ export default function DonatePage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col mt-8">
-          <p className="mx-auto md:ml-32 font-semibold text-aulaBlack">BTC</p>
+          <p className="mx-auto md:ml-28 font-semibold text-aulaBlack">BTC</p>
           <Image
-            className="mx-auto md:mx-0"
+            className="mx-auto md:mx-0 my-4"
             src="/BTC.png"
             alt="BTC QRcode"
-            width="320"
-            height="320"
+            width="240"
+            height="240"
           />
         </div>
         <div className="flex flex-col mt-8">
-          <p className="mx-auto md:ml-32 font-semibold text-aulaBlack">LTC</p>
+          <p className="mx-auto md:ml-28 font-semibold text-aulaBlack">LTC</p>
           <Image
-            className="mx-auto md:mx-0"
+            className="mx-auto md:mx-0 my-4"
             src="/LTC.png"
             alt="LTC QRcode"
-            width="320"
-            height="320"
+            width="240"
+            height="240"
           />
         </div>
         <div className="flex flex-col mt-8">
-          <p className="mx-auto md:ml-32 font-semibold text-aulaBlack">ETH</p>
+          <p className="mx-auto md:ml-28 font-semibold text-aulaBlack">ETH</p>
           <Image
-            className="mx-auto md:mx-0"
+            className="mx-auto md:mx-0 my-4"
             src="/ETH.png"
             alt="ETH QRcode"
-            width="320"
-            height="320"
+            width="240"
+            height="240"
           />
         </div>
         <div className="flex flex-col mt-8">
-          <p className="mx-auto md:ml-32 font-semibold text-aulaBlack">DOGE</p>
+          <p className="mx-auto md:ml-24 font-semibold text-aulaBlack">DOGE</p>
           <Image
-            className="mx-auto md:mx-0"
+            className="mx-auto md:mx-0 my-4"
             src="/DOGE.png"
             alt="DOGE QRcode"
-            width="320"
-            height="320"
+            width="240"
+            height="240"
           />
         </div>
       </div>
@@ -116,7 +116,7 @@ export default function DonatePage() {
       </h3>
       <div className="flex flex-col mt-8">
         <Link
-          className="mx-auto md:ml-32 font-semibold text-aulaBlack"
+          className="mx-auto md:ml-28 font-semibold text-aulaBlack"
           href="https://www.paypal.com/paypalme/NFTaula"
           target="_blank"
         >
@@ -126,8 +126,8 @@ export default function DonatePage() {
           className="mx-auto md:mx-0"
           src="/PayPal_QR.png"
           alt="PayPal QRcode"
-          width="320"
-          height="320"
+          width="280"
+          height="280"
         />
       </div>
       {/* </Card> */}
