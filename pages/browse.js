@@ -76,7 +76,7 @@ export default function BrowsePage() {
       <Card marginBottom={true}>
         <div className="md:relative flex items-center">
           <svg
-            className="hidden md:block h-6 absolute top-2 left-4 text-gray-400"
+            className="hidden md:block h-6 absolute top-2 left-4 text-gray-400 dark:text-gray-600"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -90,7 +90,7 @@ export default function BrowsePage() {
             />
           </svg>
           <input
-            className="w-full rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+            className="w-full rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
             type="text"
             placeholder="Search for NFTs, collections and more"
             value={searchTerm}
@@ -98,11 +98,11 @@ export default function BrowsePage() {
           />
           <button
             type="submit"
-            className="bg-indigo-500 text-white rounded-full ml-3 py-2 px-3 md:px-4 hover:bg-indigo-600"
+            className="bg-indigo-500 text-gray-100 rounded-full ml-3 py-2 px-3 md:px-4 hover:bg-indigo-600"
             onClick={handleSubmit}
           >
             <svg
-              className="md:hidden h-6 text-white"
+              className="md:hidden h-6 text-gray-100"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -119,7 +119,7 @@ export default function BrowsePage() {
           </button>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="bg-white rounded-full ml-2 py-2 px-2"
+            className="bg-white dark:bg-gray-800 rounded-full ml-2 py-2 px-2"
           >
             <svg
               className="h-6 text-indigo-500"
@@ -142,9 +142,9 @@ export default function BrowsePage() {
         <Card>
           <div className="flex flex-wrap -mx-3">
             <div className="w-1/2 px-3 mb-6">
-              <label className="block text-gray-700 mb-2">Category:</label>
+              <label className="block text-gray-700 dark:text-gray-400 mb-2">Category:</label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
               >
@@ -168,9 +168,9 @@ export default function BrowsePage() {
               </select>
             </div>
             <div className="w-1/2 px-3 mb-6">
-              <label className="block text-gray-700 mb-2">Marketplace:</label>
+              <label className="block text-gray-700 dark:text-gray-400 mb-2">Marketplace:</label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                 value={marketplaceFilter}
                 onChange={(e) => setMarketplaceFilter(e.target.value)}
               >
@@ -190,9 +190,9 @@ export default function BrowsePage() {
               </select>
             </div>
             <div className="w-1/2 px-3 mb-6">
-              <label className="block text-gray-700 mb-2">Blockchain:</label>
+              <label className="block text-gray-700 dark:text-gray-400 mb-2">Blockchain:</label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                 value={blockchainFilter}
                 onChange={(e) => setBlockchainFilter(e.target.value)}
               >
@@ -208,9 +208,9 @@ export default function BrowsePage() {
               </select>
             </div>
             <div className="w-1/2 px-3 mb-6">
-              <label className="block text-gray-700 mb-2">Currency:</label>
+              <label className="block text-gray-700 dark:text-gray-400 mb-2">Currency:</label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                 value={currencyFilter}
                 onChange={(e) => setCurrencyFilter(e.target.value)}
               >
@@ -230,12 +230,12 @@ export default function BrowsePage() {
               </select>
             </div>
             <div className="w-1/2 px-3 mb-2">
-              <label className="block text-gray-700 mb-2">
+              <label className="block text-gray-700 dark:text-gray-400 mb-2">
                 Price (min, max):
               </label>
               <div className="flex">
                 <input
-                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500 mr-2"
+                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500 mr-2"
                   type="text"
                   value={priceFilter.min}
                   onChange={(e) =>
@@ -243,7 +243,7 @@ export default function BrowsePage() {
                   }
                 />
                 <input
-                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                   type="text"
                   value={priceFilter.max}
                   onChange={(e) =>
@@ -253,9 +253,9 @@ export default function BrowsePage() {
               </div>
             </div>
             <div className="w-1/2 px-3 mb-2">
-              <label className="block text-gray-700 mb-2">Sort by:</label>
+              <label className="block text-gray-700 dark:text-gray-400 mb-2">Sort by:</label>
               <select
-                className="w-full md:w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 border border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full md:w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                 value={sortFilter}
                 onChange={(e) => setSortFilter(e.target.value)}
               >
@@ -268,7 +268,7 @@ export default function BrowsePage() {
           </div>
         </Card>
       )}
-      <div className="mt-4 md:mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="mt-4 md:mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {isLoading ? ( // Render loading indicator while data is being fetched
           <div>Loading NFTs...</div>
         ) : (

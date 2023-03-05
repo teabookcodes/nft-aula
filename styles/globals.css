@@ -8,14 +8,8 @@
   html {
     font-family: "Poppins", sans-serif;
   }
-}
 
-body {
-  /* background: radial-gradient(circle, #4caf50, #8bc34a, #cddc39); */
-  /* background: radial-gradient(circle, #9c27b0, #3f51b5, #2196f3); */
-  background-color: #fcfcfc;
-  background-image: url("https://imgtr.ee/images/2023/01/20/G1bA3.png");
-  background-repeat: no-repeat;
-  background-position: left top;
-  color: #0b0c0d;
+  body {
+    @apply bg-gray-50 text-aulaGray dark:bg-gray-900 dark:text-gray-100;
+  }
 }

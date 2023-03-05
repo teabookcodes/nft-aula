@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function NftCard({
   id,
@@ -154,20 +155,20 @@ export default function NftCard({
           </h3>
           {/* </Link> */}
           <h3 className="text-base mb-2">
-            <span className="font-semibold text-aulaGray">{collection}</span>
+            <span className="font-semibold">{collection}</span>
           </h3>
-          <p className="text-sm mb-2 text-gray-500">{description}</p>
+          {/* <p className="text-sm mb-2 text-gray-500">{description}</p> */}
           <h3 className="text-base">
             Category:{" "}
-            <span className="font-semibold text-aulaGray">{category}</span>
+            <span className="font-semibold">{category}</span>
           </h3>
           <h3 className="text-base">
             Marketplace:{" "}
-            <span className="font-semibold text-aulaGray">{marketplace}</span>
+            <span className="font-semibold">{marketplace}</span>
           </h3>
           <h3 className="text-base">
             Blockchain:{" "}
-            <span className="font-semibold text-aulaGray">{blockchain}</span>
+            <span className="font-semibold">{blockchain}</span>
           </h3>
           <h3 className="text-lg my-2">
             Price:{" "}
@@ -201,7 +202,7 @@ export default function NftCard({
             <ClickOutHandler onClickOut={handleClickOutsideDropdown}>
               <div className="relative">
                 {dropdownOpen && (
-                  <div className="absolute -right-6 bg-white shadow-md shadow-gray-300 p-3 rounded-md border border-gray-100 w-52">
+                  <div className="absolute -right-6 bg-white dark:bg-gray-800 shadow-md shadow-gray-300 dark:shadow-none p-3 rounded-md border border-gray-100 dark:border-gray-900 w-52">
                     {/* <button onClick={toggleSave} className="w-full">
                       <span className="flex gap-3 py-2 hover:bg-aulaBlack hover:text-white px-4 -mx-4 rounded-md transition-all hover:scale-110 hover:shadow-md shadow-gray-300">
                         {isSaved && (
@@ -331,68 +332,77 @@ export default function NftCard({
           </div>
         )}
       </div>
-      <div className="rounded-md overflow-hidden my-2">
-        {nftImage?.length > 0 && (
-          <img
-            className="w-full"
+
+      <div className="rounded-md overflow-hidden mt-2 mb-4 w-full h-60 flex items-center">
+        <img
+          src={nftImage}
+          alt={nftName}
+          className="w-full"
+        />
+      </div>
+
+      {/* {nftImage?.length > 0 && (
+          <Image
+            className=""
             src={nftImage}
             alt={nftName}
+            width="360"
+            height="360"
           />
+        )} */}
+      <div className="flex flex-col items-start gap-2 mb-2">
+        {collectionWebsite !== "" && (
+          <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+            <a
+              href={collectionWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold"
+            >
+              Web
+            </a>
+          </p>
         )}
-        <div className="relative text-right">
-          <div className="absolute rounded-lg text-white left-3 bottom-3">
-            {collectionWebsite !== "" && (
-              <p className="block w-16 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
-                <a
-                  href={collectionWebsite}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold"
-                >
-                  Web
-                </a>
-              </p>
-            )}
-            {collectionTwitter !== "" && (
-              <p className="block w-20 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
-                <a
-                  href={collectionTwitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold"
-                >
-                  Twitter
-                </a>
-              </p>
-            )}
-            <p className="block w-28 mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
-              <a
-                href={collectionLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold"
-              >
-                Collection
-              </a>
-            </p>
-            <p className="block w-auto mr-auto mb-2 px-3 text-left rounded-full text-white bg-aulaBlack">
-              <a
-                href={marketplaceLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold"
-              >
-                Buy at {marketplace}
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-      {pathname === "/saved" && (
-        <p className="text-gray-400 text-sm">
-          NFT was uploaded by: <span className="cursor-pointer">{author}</span>
+        {collectionTwitter !== "" && (
+          <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+            <a
+              href={collectionTwitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold"
+            >
+              Twitter
+            </a>
+          </p>
+        )}
+        <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+          <a
+            href={collectionLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold"
+          >
+            Collection
+          </a>
         </p>
-      )}
-    </Card>
+        <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+          <a
+            href={marketplaceLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold"
+          >
+            Buy at {marketplace}
+          </a>
+        </p>
+      </div>
+      {
+        pathname === "/saved" && (
+          <p className="text-gray-400 text-sm">
+            NFT was uploaded by: <span className="cursor-pointer">{author}</span>
+          </p>
+        )
+      }
+    </Card >
   );
 }

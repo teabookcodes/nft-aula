@@ -59,7 +59,7 @@ export default function DonatePage() {
           D9obVMZwqknKhGpHzcgwAFa8L5xdm1EcCt
         </p> */}
 
-      <div className="flex flex-col md:flex-row mt-8 md:mt-0 items-center gap-2">
+      <div className="flex flex-col md:flex-row mt-8 mb-4 md:mb-8 md:mt-0 items-center gap-2">
         <Link className="block w-28 py-2 px-3 text-sm font-semibold text-white bg-aulaBlack rounded-md hover:bg-indigo-600" href="https://app.ens.domains/name/nftaula.eth/details" target="_blank">
           NFTaula.eth
         </Link>
@@ -90,7 +90,7 @@ export default function DonatePage() {
           />
         </div>
         <div className="flex flex-col mt-8">
-          <p className="mx-auto md:ml-28 font-semibold text-aulaBlack">ETH</p>
+          <p className="mx-auto mt:0 md:-mt-6 md:ml-6 font-semibold text-center text-aulaBlack">ETH<br />(and all ERC-20 tokens)</p>
           <Image
             className="mx-auto md:mx-0 my-4"
             src="/ETH.png"

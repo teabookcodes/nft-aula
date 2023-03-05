@@ -54,18 +54,13 @@ export default function PrivacyPolicyPage() {
                 For more information about our privacy practices or if you have questions or concerns, please contact us via email at privacypolicy@nftaula.io.
 
 
-                <h2 className="text-xl font-semibold text-aulaBlack mt-8 mb-4">GDPR</h2>
+                <h2 className="text-xl font-semibold text-aulaBlack mt-8 mb-4">GDPR Policy (for European Union)</h2>
 
-                At NFTaula.io, we take the protection of personal data seriously and are committed to complying with the General Data Protection Regulation (GDPR).
-
-                We collect only the minimum amount of personal data necessary to provide our services to users. This includes information such as name, email address, and payment information. We use this information solely for the purpose of providing the best possible user experience and will not share it with any third parties unless required by law.
-
-                We also take appropriate security measures to protect the personal data that we collect. This includes using encryption to protect data in transit and secure storage solutions to protect data at rest. We regularly monitor our systems and perform security audits to ensure that we maintain a high level of protection for our users&apos; personal data.
-
-                We believe that transparency is key to building trust with our users, and we are committed to providing clear and concise information about how we use and protect personal data. If you have any questions about our privacy practices, please don&apos;t hesitate to contact us.
-
-                By using NFTaula.io, you consent to the collection and use of your personal data as described in this policy. We will only make changes to this policy with your prior consent.
-
+                <p className="mt-4 mb-2">At NFTaula.io, we take the protection of personal data seriously and are committed to complying with the General Data Protection Regulation (GDPR).</p>
+                <p className="mt-4 mb-2">We collect only the minimum amount of personal data necessary to provide our services to users. This includes information such as name, email address, and payment information. We use this information solely for the purpose of providing the best possible user experience and will not share it with any third parties unless required by law.</p>
+                <p className="mt-4 mb-2">We also take appropriate security measures to protect the personal data that we collect. This includes using encryption to protect data in transit and secure storage solutions to protect data at rest. We regularly monitor our systems and perform security audits to ensure that we maintain a high level of protection for our users&apos; personal data.</p>
+                <p className="mt-4 mb-2">We believe that transparency is key to building trust with our users, and we are committed to providing clear and concise information about how we use and protect personal data. If you have any questions about our privacy practices, please don&apos;t hesitate to contact us.</p>
+                <p className="mt-4 mb-2">By using NFTaula.io, you consent to the collection and use of your personal data as described in this policy. We will only make changes to this policy with your prior consent.</p>
             </Card>
         </Layout>
     )
