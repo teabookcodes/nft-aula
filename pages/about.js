@@ -10,20 +10,22 @@ export default function PrivacyPolicyPage() {
                     <h1 className="text-xl text-center md:text-left font-semibold text-aulaBlack">
                         About
                     </h1>
-                    <p className="mt-4">
-                        Welcome to NFTaula.io, a platform for NFT creators and collectors! My
-                        name is Ladislav Bagari, also known as NFTbagari on Twitter. I am a
-                        passionate NFT collector and creator, and I created NFTaula.io to
-                        provide a space where creators can showcase their work and collectors
-                        can easily browse and discover new pieces to add to their collections.
-                    </p>
+                    <p className="uppercase">Welcome to NFTaula.io, a platform for NFT creators and collectors!</p>
+                    <p className="mt-4">My name is Ladislav Bagari, also known as <Link
+                        className="font-semibold text-aulaBlack text-center md:text-left"
+                        href="https://twitter.com/NFTbagari"
+                        target="_blank"
+                    >
+                        @NFTbagari
+                    </Link> on Twitter.</p>
+                    <p className="mt-4">I am a passionate NFT collector and creator, and I created NFTaula.io to provide a space, where creators can showcase their work and collectors can easily browse and discover new pieces to add to their collections.</p>
                     <div className="my-8">
                         <img
-                            className="rounded-md mx-auto mb-4"
+                            className="rounded-md mx-auto md:mx-0 mb-4"
                             src="https://pbs.twimg.com/profile_images/1622072686284312576/IahrC2Ed_400x400.jpg"
                             alt="NFTbagari"
                         />
-                        <p className="text-center text-gray-500">
+                        <p className="text-center md:text-left text-gray-500">
                             Ladislav Bagari, creator of NFTaula.io
                         </p>
                     </div>
