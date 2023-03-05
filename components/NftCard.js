@@ -350,49 +350,56 @@ export default function NftCard({
             height="360"
           />
         )} */}
-      <div className="flex flex-col items-start gap-2 mb-2">
+      <div className="flex items-center justify-start gap-3 ml-2 -mt-8 mb-2">
         {collectionWebsite !== "" && (
-          <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+          <p className="block p-1 text-left rounded-full text-gray-100 bg-aulaBlack hover:bg-indigo-600">
             <a
               href={collectionWebsite}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold"
             >
-              Web
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+              </svg>
             </a>
           </p>
         )}
         {collectionTwitter !== "" && (
-          <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+          <p className="block p-1 text-left rounded-full text-gray-100 bg-aulaBlack hover:bg-indigo-600">
             <a
               href={collectionTwitter}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold"
             >
-              Twitter
+              <svg className="w-6 h-6" fill="#FFFFFF" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke="#FFFFFF"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M11.919 24.94c-2.548 0-4.921-.747-6.919-2.032a9.049 9.049 0 0 0 6.681-1.867 4.512 4.512 0 0 1-4.215-3.137c.276.054.559.082.848.082.412 0 .812-.056 1.193-.156a4.519 4.519 0 0 1-3.622-4.425v-.059a4.478 4.478 0 0 0 2.042.564 4.507 4.507 0 0 1-2.008-3.758c0-.824.225-1.602.612-2.268a12.811 12.811 0 0 0 9.303 4.715 4.517 4.517 0 0 1 7.692-4.115 9.107 9.107 0 0 0 2.866-1.094 4.542 4.542 0 0 1-1.983 2.498 9.08 9.08 0 0 0 2.592-.71 9.283 9.283 0 0 1-2.252 2.337c.008.193.014.388.014.583-.001 5.962-4.542 12.843-12.844 12.842"></path></g></svg>
             </a>
           </p>
         )}
-        <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+        <p className="block p-1 rounded-full text-gray-100 bg-aulaBlack hover:bg-indigo-600">
           <a
             href={collectionLink}
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold"
           >
-            Collection
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
           </a>
         </p>
-        <p className="block px-3 text-left rounded-md text-gray-100 bg-aulaBlack hover:bg-indigo-600">
+        <p className="block p-1 text-left rounded-full text-gray-100 bg-aulaBlack hover:bg-indigo-600">
           <a
             href={marketplaceLink}
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold"
           >
-            Buy at {marketplace}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
+            </svg>
+
           </a>
         </p>
       </div>
