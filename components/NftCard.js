@@ -131,7 +131,7 @@ export default function NftCard({
         <div>
           {/* <Link href="/nft-detail"> */}
           <h3 className="text-xl">
-            <span className="font-semibold text-aulaBlack">{nftName}</span>
+            <Link href="/" className="font-semibold text-aulaBlack">{nftName}</Link>
           </h3>
           {/* </Link> */}
           <h3 className="text-base mb-2">
