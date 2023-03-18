@@ -2,11 +2,14 @@ import Layout from "../components/Layout";
 import Card from "../components/Card";
 import NftCard from "../components/NftCard";
 import ListNftForm from "../components/ListNftForm";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import Router from "next/router";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useEffect, useState } from "react";
 
 export default function BrowsePage() {
   const supabase = useSupabaseClient();
+  const session = useSession();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [marketplaceFilter, setMarketplaceFilter] = useState("");
@@ -69,6 +72,14 @@ export default function BrowsePage() {
       setFilteredNfts(data);
     }
   };
+
+  function showListFormHandler() {
+    if (!session) {
+      Router.push("/login");
+    } else {
+      setShowListForm(!showListForm)
+    }
+  }
 
   return (
     <Layout>
@@ -140,7 +151,7 @@ export default function BrowsePage() {
           </button>
           <button
             className="bg-gray-200 text-aulaGray rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-gray-300"
-            onClick={() => setShowListForm(!showListForm)}
+            onClick={showListFormHandler}
           >
 
             <svg className="md:hidden h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
