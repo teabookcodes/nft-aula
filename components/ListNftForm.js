@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
-export default function UploadForm() {
+export default function ListNftForm() {
   const [nftName, setNftName] = useState("");
   const [collection, setCollection] = useState("");
   const [description, setDescription] = useState("");

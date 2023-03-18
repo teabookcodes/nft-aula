@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import NftCard from "../components/NftCard";
+import ListNftForm from "../components/ListNftForm";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useEffect, useState } from "react";
 
@@ -14,6 +15,7 @@ export default function BrowsePage() {
   const [priceFilter, setPriceFilter] = useState({ min: 0, max: 9999 });
   const [sortFilter, setSortFilter] = useState("");
   const [showFilters, setShowFilters] = useState(false);
+  const [showListForm, setShowListForm] = useState(false);
   const [nfts, setNfts] = useState([]);
   const [filteredNfts, setFilteredNfts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -90,15 +92,34 @@ export default function BrowsePage() {
             />
           </svg>
           <input
-            className="w-full rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+            className="w-3/4 rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
             type="text"
             placeholder="Search for NFTs, collections and more"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="bg-white dark:bg-gray-800 rounded-full ml-3 py-2 px-2"
+          >
+            <svg
+              className="h-6 text-indigo-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+              />
+            </svg>
+          </button>
+          <button
             type="submit"
-            className="bg-indigo-500 text-gray-100 rounded-full ml-3 py-2 px-3 md:px-4 hover:bg-indigo-600"
+            className="bg-indigo-500 text-gray-100 rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-indigo-600"
             onClick={handleSubmit}
           >
             <svg
@@ -118,26 +139,25 @@ export default function BrowsePage() {
             <span className="hidden md:block">Search</span>
           </button>
           <button
-            onClick={() => setShowFilters(!showFilters)}
-            className="bg-white dark:bg-gray-800 rounded-full ml-2 py-2 px-2"
+            className="bg-gray-200 text-aulaGray rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-gray-300"
+            onClick={() => setShowListForm(!showListForm)}
           >
-            <svg
-              className="h-6 text-indigo-500"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
-              />
+
+            <svg className="md:hidden h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
+
+            <span className="hidden md:block">List NFT</span>
           </button>
         </div>
       </Card>
+      {showListForm && (
+        <div className="mb-6">
+          <Card>
+            <ListNftForm />
+          </Card>
+        </div>
+      )}
       {showFilters && (
         <Card>
           <div className="flex flex-wrap -mx-3">
