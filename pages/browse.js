@@ -103,7 +103,7 @@ export default function BrowsePage() {
             />
           </svg>
           <input
-            className="w-3/4 rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+            className="w-full rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
             type="text"
             placeholder="Search for NFTs, collections and more"
             value={searchTerm}
@@ -150,7 +150,7 @@ export default function BrowsePage() {
             <span className="hidden md:block">Search</span>
           </button>
           <button
-            className="bg-gray-200 text-aulaGray rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-gray-300"
+            className="md:min-w-fit bg-gray-200 text-aulaGray rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-gray-300"
             onClick={showListFormHandler}
           >
 
