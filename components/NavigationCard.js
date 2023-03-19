@@ -78,7 +78,7 @@ export default function NavigationCard() {
           </Link>
           {session && (
             <div className="flex gap-4 items-center justify-between md:block">
-              {/* <Link
+              <Link
                 href="/list-nft"
                 className={
                   pathname === "/list-nft"
@@ -101,7 +101,7 @@ export default function NavigationCard() {
                   />
                 </svg>
                 <span className="hidden">List new NFT</span>
-              </Link> */}
+              </Link>
               <Link
                 href="/saved"
                 className={
