@@ -46,24 +46,15 @@ export default function ProfilePage() {
       )}
       {session && (
         <Card marginBottom={true}>
-          <div className="flex gap-4 items-center">
-            <div>
-              <img
-                className="w-24 rounded-md"
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-                alt="Profile picture"
-              />
-            </div>
-            <div>
-              {/* <p>
+          <div>
+            {/* <p>
                 <span className="font-semibold text-aulaBlack">User ID:</span>{" "}
                 {userId}
               </p> */}
-              <h3 className="text-xl font-semibold text-aulaBlack">
-                {/* <span className="font-semibold text-aulaBlack">Email:</span>{" "} */}
-                {userEmail}
-              </h3>
-            </div>
+            <h3 className="text-xl font-semibold text-center md:text-left text-aulaBlack">
+              {/* <span className="font-semibold text-aulaBlack">Email:</span>{" "} */}
+              {userEmail}
+            </h3>
           </div>
         </Card>
       )}
