@@ -658,7 +658,7 @@ export default function NftCard({
           )}
         </div>
 
-        <div onClick={openNftDetail} className="-my-8 rounded-md overflow-hidden w-full h-60 flex items-center cursor-pointer">
+        <div onClick={openNftDetail} className="-my-4 rounded-md overflow-hidden w-full h-60 flex items-center cursor-pointer">
           <img src={nftImage} alt={nftName} className="w-full" />
         </div>
 
