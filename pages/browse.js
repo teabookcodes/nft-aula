@@ -5,6 +5,7 @@ import ListNftForm from "../components/ListNftForm";
 import Router from "next/router";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useEffect, useState } from "react";
+import Pagination from "@/components/Pagination";
 
 export default function BrowsePage() {
   const supabase = useSupabaseClient();
@@ -19,9 +20,21 @@ export default function BrowsePage() {
   const [sortFilter, setSortFilter] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [showListForm, setShowListForm] = useState(false);
+
   const [nfts, setNfts] = useState([]);
   const [filteredNfts, setFilteredNfts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [nftsPerPage, setNftsPerPage] = useState(8);
+
+  function showListFormHandler() {
+    if (!session) {
+      Router.push("/login");
+    } else {
+      setShowListForm(!showListForm)
+    }
+  }
 
   useEffect(() => {
     supabase
@@ -73,13 +86,10 @@ export default function BrowsePage() {
     }
   };
 
-  function showListFormHandler() {
-    if (!session) {
-      Router.push("/login");
-    } else {
-      setShowListForm(!showListForm)
-    }
-  }
+  const lastNftIndex = currentPage * nftsPerPage;
+  const firstNftIndex = lastNftIndex - nftsPerPage;
+  const currentNfts = nfts.slice(firstNftIndex, lastNftIndex);
+  const currentFilteredNfts = filteredNfts.slice(firstNftIndex, lastNftIndex);
 
   return (
     <Layout>
@@ -304,13 +314,16 @@ export default function BrowsePage() {
           <div>Loading NFTs...</div>
         ) : (
           filteredNfts?.length > 0 ? (
-            filteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+            currentFilteredNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
           ) : filteredNfts && filteredNfts.length === 0 ? (
             <div>No NFTs found based on the current filters.</div>
           ) : (
-            nfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
+            currentNfts.map((nft) => <NftCard key={nft.created_at} {...nft} />)
           )
         )}
+      </div>
+      <div className="w-full mt-4">
+        <Pagination totalNfts={nfts.length} nftsPerPage={nftsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </div>
     </Layout>
   );

@@ -25,12 +25,6 @@ export default function LoginPage() {
     })
   }
 
-  useEffect(() => {
-    if (session) {
-      Router.push("/");
-    }
-  }, [session]);
-
   return (
     <Layout hideNavigation={true}>
       <div className="h-screen flex items-center">

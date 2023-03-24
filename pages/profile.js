@@ -61,7 +61,7 @@ export default function ProfilePage() {
       {session && (
         <div>
           <h3 className="text-xl text-center md:text-left font-semibold mt-4 text-aulaBlack">Your NFTs:</h3>
-          <div className="mt-4 grid md:grid-cols-3 lg:grid-flow-cols-4 gap-4">
+          <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {nfts.length > 0 &&
               nfts.map((nft) => (
                 <div key={nft.id}>
