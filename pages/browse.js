@@ -309,7 +309,7 @@ export default function BrowsePage() {
           </div>
         </Card>
       )}
-      <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {isLoading ? ( // Render loading indicator while data is being fetched
           <div>Loading NFTs...</div>
         ) : (
