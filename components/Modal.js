@@ -17,8 +17,8 @@ export default function Modal({ children, showModal, setShowModal }) {
         <div className={modalClasses}>
             <button
                 onClick={closeModal}
-                className='bg-aulaBlack text-white p-1 mb-2 rounded-full'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                className='bg-aulaBlack text-white p-2 mb-4 rounded-full'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
