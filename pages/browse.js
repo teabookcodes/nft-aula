@@ -26,7 +26,7 @@ export default function BrowsePage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [nftsPerPage, setNftsPerPage] = useState(8);
+  const [nftsPerPage, setNftsPerPage] = useState(20);
 
   function showListFormHandler() {
     if (!session) {
