@@ -776,11 +776,11 @@ export default function NftCard({
             </a>
           </p>
         </div>
-        {pathname === "/saved" && (
+        {/* {pathname === "/saved" && (
           <p className="text-gray-400 text-sm">
             NFT was uploaded by: <span className="cursor-pointer">{author}</span>
           </p>
-        )}
+        )} */}
       </Card>
     </div >
   );
