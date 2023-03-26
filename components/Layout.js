@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import SiteLogo from "./SiteLogo";
 import NavigationCard from "./NavigationCard";
+import CookieConsentBar from "./CookieConsentBar";
 import Footer from "./Footer";
 
 export default function Layout({ children, hideNavigation }) {
@@ -64,6 +65,7 @@ export default function Layout({ children, hideNavigation }) {
 
         <div className={rightColumnClasses}>{children}</div>
       </div>
+      <CookieConsentBar />
       <Footer />
     </div>
   );

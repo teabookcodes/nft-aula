@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import CookieConsentBar from "../components/CookieConsentBar";
 
 export default function Home() {
 
@@ -37,7 +36,6 @@ export default function Home() {
 
         <img className="w-full md:w-1/2 rounded-md mt-8 mx-auto" src="https://i.seadn.io/gcs/files/e793849eb6d6f78ab7d4f67f0f5daedc.jpg?auto=format&w=1000" alt="Argentina Champion NFT owned by Bagari" title="Argentina Champion NFT owned by Bagari" />
       </Card>
-      <CookieConsentBar />
     </Layout>
   );
 }
