@@ -13,7 +13,10 @@ export default function Pagination({ totalNfts, nftsPerPage, currentPage, setCur
     return (
         <div className="text-center md:text-left">
             {pages.map((page, index) => {
-                return <button key={index} onClick={() => setCurrentPage(page)} className={page === currentPage ? activeButton : nonActiveButton}>
+                return <button key={index} onClick={() => {
+                    setCurrentPage(page);
+                    window.scrollTo(0, 0);
+                }} className={page === currentPage ? activeButton : nonActiveButton}>
                     {page}
                 </button>
             })}
