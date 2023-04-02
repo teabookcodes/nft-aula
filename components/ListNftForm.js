@@ -83,6 +83,7 @@ export default function ListNftForm() {
           setUpload("");
           alert("NFT succesfully uploaded!");
           window.location.reload();
+          window.scrollTo(0, 0);
         } else {
           alert(
             "NFT could not be uploaded due to an error. You must fill in all fields correctly!"
