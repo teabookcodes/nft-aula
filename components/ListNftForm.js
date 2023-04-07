@@ -80,11 +80,6 @@ export default function ListNftForm() {
       return;
     }
 
-    if (collectionTwitter && !linkRegex.test(collectionTwitter)) {
-      alert("Please enter a valid Twitter link for the collection.");
-      return;
-    }
-
     if (collectionLink && !linkRegex.test(collectionLink)) {
       alert("Please enter a valid collection link.");
       return;
@@ -92,6 +87,16 @@ export default function ListNftForm() {
 
     if (collectionWebsite && !linkRegex.test(collectionWebsite)) {
       alert("Please enter a valid website link.");
+      return;
+    }
+
+    if (upload === "") {
+      alert("Please upload an NFT image.");
+      return;
+    }
+
+    if (collectionTwitter && !/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionTwitter)) {
+      alert("Please enter a valid Twitter link for the collection.");
       return;
     }
 
