@@ -53,7 +53,7 @@ export default function ListNftForm() {
     const nftNameRegex = /^[a-zA-Z0-9\s#]+$/;
     const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
     const numericRegex = /^[\d,.]+$/;
-    const linkRegex = /^https?:\/\/(?!twitter\.com)[^\s]+$/;
+    const linkRegex = /^(https?:\/\/)?(?!twitter\.com)[^\s]+\.[^\s]+$/;
 
     if (!nftNameRegex.test(nftName)) {
       alert("Please enter a valid NFT name.");
@@ -119,13 +119,6 @@ export default function ListNftForm() {
     } else {
       alert("Please enter a valid collection link.");
       return;
-    }
-
-    if (collectionTwitter) {
-      if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionTwitter)) {
-        alert("Please enter a valid Twitter link for the collection.");
-        return;
-      }
     }
 
     if (collectionWebsite) {
