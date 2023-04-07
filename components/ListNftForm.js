@@ -65,28 +65,8 @@ export default function ListNftForm() {
       return;
     }
 
-    if (!alphanumericRegex.test(description)) {
+    if (description && !alphanumericRegex.test(description)) {
       alert("Please enter a valid description.");
-      return;
-    }
-
-    if (!numericRegex.test(price)) {
-      alert("Please enter a valid price.");
-      return;
-    }
-
-    if (marketplaceLink && !linkRegex.test(marketplaceLink)) {
-      alert("Please enter a valid marketplace link.");
-      return;
-    }
-
-    if (collectionLink && !linkRegex.test(collectionLink)) {
-      alert("Please enter a valid collection link.");
-      return;
-    }
-
-    if (collectionWebsite && !linkRegex.test(collectionWebsite)) {
-      alert("Please enter a valid website link.");
       return;
     }
 
@@ -95,9 +75,74 @@ export default function ListNftForm() {
       return;
     }
 
-    if (collectionTwitter && !/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionTwitter)) {
-      alert("Please enter a valid Twitter link for the collection.");
+    if (!numericRegex.test(price)) {
+      alert("Please enter a valid price.");
       return;
+    }
+
+
+    if (category === "") {
+      alert("Please select a value for category.");
+      return;
+    }
+
+    if (marketplace === "") {
+      alert("Please select a value for marketplace.");
+      return;
+    }
+
+    if (blockchain === "") {
+      alert("Please select a value for blockchain.");
+      return;
+    }
+
+    if (currency === "") {
+      alert("Please select a value for currency.");
+      return;
+    }
+
+
+    if (marketplaceLink) {
+      if (!linkRegex.test(marketplaceLink)) {
+        alert("Please enter a valid marketplace link.");
+        return;
+      } else if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(marketplaceLink)) {
+        alert("Marketplace link cannot be a Twitter link.");
+        return;
+      }
+    } else {
+      alert("Please enter a valid marketplace link.");
+      return;
+    }
+
+    if (collectionLink) {
+      if (!linkRegex.test(collectionLink)) {
+        alert("Please enter a valid collection link.");
+        return;
+      } else if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionLink)) {
+        alert("Collection link cannot be a Twitter link.");
+        return;
+      }
+    } else {
+      alert("Please enter a valid collection link.");
+      return;
+    }
+
+    if (collectionTwitter) {
+      if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionTwitter)) {
+        alert("Please enter a valid Twitter link for the collection.");
+        return;
+      }
+    }
+
+    if (collectionWebsite) {
+      if (!linkRegex.test(collectionWebsite)) {
+        alert("Please enter a valid website link.");
+        return;
+      } else if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionWebsite)) {
+        alert("Collection website link cannot be a Twitter link.");
+        return;
+      }
     }
 
     // If input values are valid, insert data into Supabase
