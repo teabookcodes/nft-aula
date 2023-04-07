@@ -99,7 +99,7 @@ export default function ListNftForm() {
       if (!linkRegex.test(marketplaceLink)) {
         alert("Please enter a valid marketplace link.");
         return;
-      } else if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(marketplaceLink)) {
+      } else if (/^(https?:\/\/)?(twitter\.com)[^\s]+$/.test(marketplaceLink)) {
         alert("Marketplace link cannot be a Twitter link.");
         return;
       }
@@ -112,7 +112,7 @@ export default function ListNftForm() {
       if (!linkRegex.test(collectionLink)) {
         alert("Please enter a valid collection link.");
         return;
-      } else if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionLink)) {
+      } else if (/^(https?:\/\/)?(twitter\.com)[^\s]+$/.test(collectionLink)) {
         alert("Collection link cannot be a Twitter link.");
         return;
       }
@@ -125,7 +125,7 @@ export default function ListNftForm() {
       if (!linkRegex.test(collectionWebsite)) {
         alert("Please enter a valid website link.");
         return;
-      } else if (/^https?:\/\/(twitter\.com)[^\s]+$/.test(collectionWebsite)) {
+      } else if (/^(https?:\/\/)?(twitter\.com)[^\s]+$/.test(collectionWebsite)) {
         alert("Collection website link cannot be a Twitter link.");
         return;
       }
