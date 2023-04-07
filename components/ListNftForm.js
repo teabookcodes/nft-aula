@@ -65,21 +65,10 @@ export default function ListNftForm() {
       return;
     }
 
-    if (description && !alphanumericRegex.test(description)) {
-      alert("Please enter a valid description.");
-      return;
-    }
-
     if (upload === "") {
       alert("Please upload an NFT image.");
       return;
     }
-
-    if (!numericRegex.test(price)) {
-      alert("Please enter a valid price.");
-      return;
-    }
-
 
     if (category === "") {
       alert("Please select a value for category.");
@@ -101,6 +90,10 @@ export default function ListNftForm() {
       return;
     }
 
+    if (!numericRegex.test(price)) {
+      alert("Please enter a valid price.");
+      return;
+    }
 
     if (marketplaceLink) {
       if (!linkRegex.test(marketplaceLink)) {
@@ -194,7 +187,7 @@ export default function ListNftForm() {
   return (
     <form onSubmit={handleSubmit} className="text-gray-700">
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Name of the NFT:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Name of the NFT:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="text"
@@ -203,7 +196,7 @@ export default function ListNftForm() {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Collection name:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Collection name:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="text"
@@ -212,7 +205,7 @@ export default function ListNftForm() {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Description:</label>
+        <label className="block text-gray-700 dark:text-gray-50 uppercase mb-2">Description:</label>
         <textarea
           className="w-full rounded-md px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="text"
@@ -249,7 +242,7 @@ export default function ListNftForm() {
         </div>
       )}
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Category:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Category:</label>
         <select
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           value={category}
@@ -275,7 +268,7 @@ export default function ListNftForm() {
         </select>
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Marketplace:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Marketplace:</label>
         <select
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           value={marketplace}
@@ -297,7 +290,7 @@ export default function ListNftForm() {
         </select>
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Blockchain:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Blockchain:</label>
         <select
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           value={blockchain}
@@ -315,7 +308,7 @@ export default function ListNftForm() {
         </select>
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Currency:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Currency:</label>
         <select
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           value={currency}
@@ -337,7 +330,7 @@ export default function ListNftForm() {
         </select>
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Price:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Price:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="number"
@@ -346,7 +339,7 @@ export default function ListNftForm() {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Link to your NFT on the marketplace:</label>
+        <label className="block text-aulaBlack uppercase mb-2">Link to your NFT on the marketplace:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="text"
@@ -356,7 +349,7 @@ export default function ListNftForm() {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">
+        <label className="block text-aulaBlack uppercase mb-2">
           Link to collection on the marketplace:
         </label>
         <input
@@ -368,7 +361,7 @@ export default function ListNftForm() {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Twitter:</label>
+        <label className="block text-gray-700 dark:text-gray-50 uppercase mb-2">Twitter:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="text"
@@ -378,7 +371,7 @@ export default function ListNftForm() {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 dark:text-gray-50 mb-2">Website:</label>
+        <label className="block text-gray-700 dark:text-gray-50 uppercase mb-2">Website:</label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
           type="text"
@@ -386,6 +379,9 @@ export default function ListNftForm() {
           value={collectionWebsite}
           onChange={(e) => setCollectionWebsite(e.target.value)}
         />
+      </div>
+      <div className="mb-6">
+        <p className="text-sm text-aulaBlack">* Values marked with color are required</p>
       </div>
       <div className="flex w-full justify-center md:justify-start">
         <button
