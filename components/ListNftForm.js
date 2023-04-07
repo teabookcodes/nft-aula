@@ -50,17 +50,15 @@ export default function ListNftForm() {
   // Form submit function
 
   function submitForm() {
-    const nftNameRegex = /^[a-zA-Z0-9\s#]+$/;
-    const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
     const numericRegex = /^[\d,.]+$/;
     const linkRegex = /^(https?:\/\/)?(?!twitter\.com)[^\s]+\.[^\s]+$/;
 
-    if (!nftNameRegex.test(nftName)) {
+    if (nftName === "") {
       alert("Please enter a valid NFT name.");
       return;
     }
 
-    if (!alphanumericRegex.test(collection)) {
+    if (collection === "") {
       alert("Please enter a valid collection name.");
       return;
     }
