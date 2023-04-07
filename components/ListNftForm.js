@@ -47,7 +47,56 @@ export default function ListNftForm() {
     }
   }
 
+  // Form submit function
+
   function submitForm() {
+    const nftNameRegex = /^[a-zA-Z0-9\s#]+$/;
+    const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
+    const numericRegex = /^[\d,.]+$/;
+    const linkRegex = /^https?:\/\/(?!twitter\.com)[^\s]+$/;
+
+    if (!nftNameRegex.test(nftName)) {
+      alert("Please enter a valid NFT name.");
+      return;
+    }
+
+    if (!alphanumericRegex.test(collection)) {
+      alert("Please enter a valid collection name.");
+      return;
+    }
+
+    if (!alphanumericRegex.test(description)) {
+      alert("Please enter a valid description.");
+      return;
+    }
+
+    if (!numericRegex.test(price)) {
+      alert("Please enter a valid price.");
+      return;
+    }
+
+    if (marketplaceLink && !linkRegex.test(marketplaceLink)) {
+      alert("Please enter a valid marketplace link.");
+      return;
+    }
+
+    if (collectionTwitter && !linkRegex.test(collectionTwitter)) {
+      alert("Please enter a valid Twitter link for the collection.");
+      return;
+    }
+
+    if (collectionLink && !linkRegex.test(collectionLink)) {
+      alert("Please enter a valid collection link.");
+      return;
+    }
+
+    if (collectionWebsite && !linkRegex.test(collectionWebsite)) {
+      alert("Please enter a valid website link.");
+      return;
+    }
+
+    // If input values are valid, insert data into Supabase
+
     supabase
       .from("nfts")
       .insert({
