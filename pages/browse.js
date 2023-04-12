@@ -83,6 +83,7 @@ export default function BrowsePage() {
     const { data, error } = await query;
     if (!error) {
       setFilteredNfts(data);
+      setCurrentPage("1")
     }
   };
 
@@ -323,7 +324,11 @@ export default function BrowsePage() {
         )}
       </div>
       <div className="w-full mt-4">
-        <Pagination totalNfts={nfts.length} nftsPerPage={nftsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        {(filteredNfts.length === 0 || filteredNfts?.length > 0) ? (
+          <Pagination totalNfts={filteredNfts.length} nftsPerPage={nftsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        ) : (
+          <Pagination totalNfts={nfts.length} nftsPerPage={nftsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        )}
       </div>
     </Layout>
   );
