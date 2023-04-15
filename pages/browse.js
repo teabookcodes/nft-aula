@@ -85,7 +85,15 @@ export default function BrowsePage() {
       setFilteredNfts(data);
       setCurrentPage("1")
     }
+
+    setShowFilters(false);
   };
+
+  function handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
+    }
+  }
 
   const lastNftIndex = currentPage * nftsPerPage;
   const firstNftIndex = lastNftIndex - nftsPerPage;
@@ -119,6 +127,7 @@ export default function BrowsePage() {
             placeholder="Search for NFTs, collections and more"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
           <button
             onClick={() => setShowFilters(!showFilters)}
