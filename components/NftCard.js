@@ -148,11 +148,15 @@ export default function NftCard({
 
   async function toggleDelete() {
     if (canDelete) {
-      const { error } = await supabase.from("nfts").delete().eq("id", id);
+      if (confirm("Are you sure you want to delete this NFT?") == true) {
+        const { error } = await supabase.from("nfts").delete().eq("id", id);
+        setDropdownOpen(false);
+        alert("NFT successfully deleted!");
+        window.location.reload();
+      } else {
+        return;
+      }
     }
-    setDropdownOpen(false);
-    alert("NFT successfully deleted!");
-    window.location.reload();
   }
 
   function openNftDetail() {
