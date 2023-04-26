@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function Pagination({ totalNfts, nftsPerPage, currentPage, setCurrentPage }) {
-    const activeButton = "text-gray-50 bg-indigo-700 w-8 mr-2 px-3 py-1 rounded-md"
-    const nonActiveButton = "text-gray-50 bg-aulaBlack w-8 mr-2 px-3 py-1 rounded-md hover:bg-indigo-600"
+    const activeButton = "text-gray-50 bg-indigo-700 w-10 mr-2 px-3 py-1 rounded-md"
+    const nonActiveButton = "text-gray-50 bg-gray-800 w-10 mr-2 px-3 py-1 rounded-md hover:bg-indigo-600 my-1"
 
     let pages = [];
 
