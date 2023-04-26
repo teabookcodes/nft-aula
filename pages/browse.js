@@ -12,6 +12,7 @@ export default function BrowsePage() {
   const session = useSession();
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [collectionFilter, setCollectionFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [marketplaceFilter, setMarketplaceFilter] = useState("");
   const [blockchainFilter, setBlockchainFilter] = useState("");
@@ -54,6 +55,10 @@ export default function BrowsePage() {
     if (searchTerm) {
       query = query.ilike("nftName", `%${searchTerm}%`);
     }
+
+    if (collectionFilter) {
+      query = query.eq("collection", collectionFilter);
+    }
     if (categoryFilter) {
       query = query.eq("category", categoryFilter);
     }
@@ -72,18 +77,38 @@ export default function BrowsePage() {
     if (priceFilter.max !== 9999) {
       query = query.lte("price", priceFilter.max);
     }
-
     if (sortFilter === "Newest") {
       query = query.order("created_at", { ascending: false });
     }
     if (sortFilter === "Oldest") {
       query = query.order("created_at", { ascending: true });
     }
+    if (sortFilter === "Name A-Z") {
+      query = query.order("nftName", { ascending: true, nullsLast: true, collate: 'en_US.utf8' });
+    }
+    if (sortFilter === "Name Z-A") {
+      query = query.order("nftName", { ascending: false, nullsLast: true, collate: 'en_US.utf8' });
+    }
+    if (sortFilter === "Collection A-Z") {
+      query = query.order("collection", { ascending: true, nullsLast: true, collate: 'en_US.utf8' });
+    }
+    if (sortFilter === "Collection Z-A") {
+      query = query.order("collection", { ascending: false, nullsLast: true, collate: 'en_US.utf8' });
+    }
+    if (sortFilter === "Lowest Price") {
+      query = query.order("price", { ascending: true });
+    }
+    if (sortFilter === "Highest Price") {
+      query = query.order("price", { ascending: false });
+    }
 
     const { data, error } = await query;
     if (!error) {
+      console.log(data);
       setFilteredNfts(data);
       setCurrentPage("1")
+    } else {
+      console.log(error);
     }
 
     setShowFilters(false);
@@ -313,6 +338,12 @@ export default function BrowsePage() {
                 <option value="">Default</option>
                 <option value="Newest">Newest</option>
                 <option value="Oldest">Oldest</option>
+                <option value="Name A-Z">Name A-Z</option>
+                <option value="Name Z-A">Name Z-A</option>
+                <option value="Collection A-Z">Collection A-Z</option>
+                <option value="Collection Z-A">Collection Z-A</option>
+                <option value="Lowest Price">Lowest Price</option>
+                <option value="Highest Price">Highest Price</option>
               </select>
             </div>
             <div className="w-1/2 px-3 mb-2">{/* Reset filters button */}</div>
