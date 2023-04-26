@@ -37,6 +37,17 @@ export default function BrowsePage() {
     }
   }
 
+  function resetFilters() {
+    setSearchTerm("");
+    setCollectionFilter("");
+    setCategoryFilter("");
+    setMarketplaceFilter("");
+    setBlockchainFilter("");
+    setCurrencyFilter("");
+    setPriceFilter({ min: 0, max: 9999 });
+    setSortFilter("");
+  }
+
   useEffect(() => {
     supabase
       .from("nfts")
@@ -55,9 +66,8 @@ export default function BrowsePage() {
     if (searchTerm) {
       query = query.ilike("nftName", `%${searchTerm}%`);
     }
-
     if (collectionFilter) {
-      query = query.eq("collection", collectionFilter);
+      query = query.ilike("collection", `%${collectionFilter}%`);
     }
     if (categoryFilter) {
       query = query.eq("category", categoryFilter);
@@ -131,55 +141,10 @@ export default function BrowsePage() {
         Browse the art
       </h1> */}
       <Card marginBottom={true}>
-        <div className="md:relative flex items-center">
-          <svg
-            className="hidden md:block h-6 absolute top-2 left-4 text-gray-400 dark:text-gray-600"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
-          </svg>
-          <input
-            className="w-full rounded-full pl-4 md:pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
-            type="text"
-            placeholder="Search for NFTs, collections and more"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-          <button
-            onClick={() => setShowFilters(!showFilters)}
-            className="bg-white dark:bg-gray-800 rounded-full ml-3 py-2 px-2"
-          >
+        <div className="flex flex-col md:flex-row items-center gap-4">
+          <div className="relative flex items-center w-full">
             <svg
-              className="h-6 text-indigo-500"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
-              />
-            </svg>
-          </button>
-          <button
-            type="submit"
-            className="bg-indigo-500 text-gray-100 rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-indigo-600"
-            onClick={handleSubmit}
-          >
-            <svg
-              className="md:hidden h-6 text-gray-100"
+              className="h-6 absolute top-2 left-4 text-gray-400 dark:text-gray-600"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -192,19 +157,83 @@ export default function BrowsePage() {
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
               />
             </svg>
-            <span className="hidden md:block">Search</span>
-          </button>
-          <button
-            className="md:min-w-fit bg-gray-200 text-aulaGray rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-gray-300"
-            onClick={showListFormHandler}
-          >
+            <input
+              className="w-full rounded-full pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+              type="text"
+              placeholder="Search NFTs"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+          </div>
 
-            <svg className="md:hidden h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          <div className="relative flex items-center w-full">
+            <svg
+              className="h-6 absolute top-2 left-4 text-gray-400 dark:text-gray-600"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
             </svg>
 
-            <span className="hidden md:block">List NFT</span>
-          </button>
+            <input
+              className="w-full rounded-full pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+              type="text"
+              placeholder="Search collections"
+              value={collectionFilter}
+              onChange={(e) => setCollectionFilter(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className="bg-white dark:bg-gray-800 rounded-full ml-3 py-2 px-2"
+            >
+              <svg
+                className="h-6 text-indigo-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+                />
+              </svg>
+            </button>
+            <button
+              type="submit"
+              className="bg-indigo-500 text-gray-100 rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-indigo-600"
+              onClick={handleSubmit}
+            >
+              <svg
+                className="md:hidden h-6 text-gray-100"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+              <span className="hidden md:block">Search</span>
+            </button>
+            <button
+              className="md:min-w-fit bg-gray-200 text-aulaGray rounded-full ml-2 py-2 px-2 md:px-4 hover:bg-gray-300"
+              onClick={showListFormHandler}
+            >
+
+              <svg className="md:hidden h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+
+              <span className="hidden md:block">List NFT</span>
+            </button>
+          </div>
         </div>
       </Card>
       {showListForm && (
@@ -328,14 +357,14 @@ export default function BrowsePage() {
                 />
               </div>
             </div>
-            <div className="w-1/2 px-3 mb-2">
+            <div className="w-1/2 grow px-3">
               <label className="block text-gray-700 dark:text-gray-400 mb-2">Sort by:</label>
               <select
-                className="w-full md:w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
                 value={sortFilter}
                 onChange={(e) => setSortFilter(e.target.value)}
               >
-                <option value="">Default</option>
+                <option value="Default">Default</option>
                 <option value="Newest">Newest</option>
                 <option value="Oldest">Oldest</option>
                 <option value="Name A-Z">Name A-Z</option>
@@ -346,7 +375,13 @@ export default function BrowsePage() {
                 <option value="Highest Price">Highest Price</option>
               </select>
             </div>
-            <div className="w-1/2 px-3 mb-2">{/* Reset filters button */}</div>
+            <div className="flex w-full justify-center md:justify-start px-3 mt-3">
+              <button
+                className="bg-gray-200 text-aulaGray rounded-full py-2 px-4 hover:bg-gray-300"
+                onClick={resetFilters}
+              >Reset Filters
+              </button>
+            </div>
           </div>
         </Card>
       )}
