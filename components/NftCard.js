@@ -124,7 +124,9 @@ export default function NftCard({
           setIsSaved(false);
           setDropdownOpen(false);
           alert("NFT unsaved successfully!");
-          window.location.reload();
+          if (pathname === "/saved") {
+            window.location.reload();
+          }
         });
     }
     if (!isSaved) {
