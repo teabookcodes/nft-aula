@@ -5,7 +5,7 @@ const ContactForm = () => {
     return (
         <Layout>
             <form
-                action="https://getform.io/f/fbf1ba12-77d2-4f2b-ba92-6efffcc2eceb"
+                action=""
                 method="POST"
                 className="max-w-xl mx-auto mt-8" >
                 <h2 className="text-2xl font-semibold text-aulaBlack text-center md:-ml-24 mb-4">Contact Us</h2>
