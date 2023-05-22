@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import SiteLogo from "./SiteLogo";
 import NavigationCard from "./NavigationCard";
 import CookieConsentBar from "./CookieConsentBar";
-import WelcomePopup from "./WelcomePopup";
+// import WelcomePopup from "./WelcomePopup";
 import Footer from "./Footer";
 
 export default function Layout({ children, hideNavigation }) {
@@ -66,7 +66,7 @@ export default function Layout({ children, hideNavigation }) {
 
         <div className={rightColumnClasses}>{children}</div>
       </div>
-      <WelcomePopup />
+      {/* <WelcomePopup /> */}
       <CookieConsentBar />
       <Footer />
     </div>
