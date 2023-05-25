@@ -353,8 +353,8 @@ export default function NftCard({
               onChange={(e) => setFormUseOfAi(e.target.value)}
             >
               <option value="">Did you use AI to generate your artwork?</option>
-              <option value="Y">Yes</option>
-              <option value="N">No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
 
