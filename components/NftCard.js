@@ -259,7 +259,9 @@ export default function NftCard({
               Category: <span className="font-semibold">{category}</span>
             </h3>
             {useOfAi && (
-              <p className="text-sm text-gray-200">Use of AI: {useOfAi}</p>
+              <p className="text-sm my-1">
+                Use of AI: <span className="font-semibold">{useOfAi}</span>
+              </p>
             )}
             <h3 className="text-base">
               Marketplace: <span className="font-semibold">{marketplace}</span>
