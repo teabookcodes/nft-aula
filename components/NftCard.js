@@ -23,6 +23,7 @@ export default function NftCard({
   collectionLink,
   collectionTwitter,
   collectionWebsite,
+  useOfAi,
   nftImage,
 }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -45,6 +46,7 @@ export default function NftCard({
   const [formCollectionTwitter, setFormCollectionTwitter] = useState("");
   const [formCollectionLink, setFormCollectionLink] = useState("");
   const [formCollectionWebsite, setFormCollectionWebsite] = useState("");
+  const [formUseOfAi, setFormUseOfAi] = useState("");
   const [upload, setUpload] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
@@ -91,6 +93,7 @@ export default function NftCard({
               setFormCollectionLink(collectionLink);
               setFormCollectionTwitter(collectionTwitter);
               setFormCollectionWebsite(collectionWebsite);
+              setFormUseOfAi(useOfAi);
               setUpload(nftImage);
             } else {
               setCanEdit(false);
@@ -208,6 +211,7 @@ export default function NftCard({
         collectionTwitter: formCollectionTwitter,
         collectionLink: formCollectionLink,
         collectionWebsite: formCollectionWebsite,
+        useOfAi: formUseOfAi,
         nftImage: upload,
       })
       .eq("id", id)
@@ -226,6 +230,7 @@ export default function NftCard({
           setFormCollectionTwitter("");
           setFormCollectionLink("");
           setFormCollectionWebsite("");
+          setFormUseOfAi("");
           setUpload("");
           alert("NFT succesfully updated!");
           window.location.reload();
@@ -253,6 +258,9 @@ export default function NftCard({
             <h3 className="text-base">
               Category: <span className="font-semibold">{category}</span>
             </h3>
+            {useOfAi && (
+              <p className="text-sm text-gray-200">Use of AI: {useOfAi}</p>
+            )}
             <h3 className="text-base">
               Marketplace: <span className="font-semibold">{marketplace}</span>
             </h3>
@@ -332,6 +340,22 @@ export default function NftCard({
               </div>
             </div>
           )}
+
+          <div className="mb-6">
+            <label className="block text-gray-700 dark:text-gray-50 uppercase mb-2">
+              Use of AI (e.g. Midjourney, DALL-E, ...):
+            </label>
+            <select
+              className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+              value={formUseOfAi}
+              onChange={(e) => setFormUseOfAi(e.target.value)}
+            >
+              <option value="">Did you use AI to generate your artwork?</option>
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
+            </select>
+          </div>
+
           <div className="mb-6">
             <label className="block text-gray-700 dark:text-gray-50 mb-2">
               Category:
