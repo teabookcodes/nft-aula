@@ -301,12 +301,12 @@ export default function ListNftForm() {
           onChange={(e) => setBlockchain(e.target.value)}
         >
           <option value="">Please select a blockchain</option>
-          <option value="Bitcoin">Bitcoin</option>
+          <option value="Bitcoin">Bitcoin (BTC)</option>
           <option value="BNB">Binance Chain (BNB)</option>
-          <option value="Ethereum">Ethereum</option>
-          <option value="Flow">Flow</option>
+          <option value="Ethereum">Ethereum (ETH)</option>
+          <option value="Flow">Flow (FLOW)</option>
           <option value="Polygon">Polygon</option>
-          <option value="Solana">Solana</option>
+          <option value="Solana">Solana (SOL)</option>
           <option value="Tezos">Tezos</option>
           <option value="WAX">Worldwide Asset Exchange (WAX)</option>
           <option value="Other">Other</option>
