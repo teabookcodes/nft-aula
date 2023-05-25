@@ -278,6 +278,7 @@ export default function ListNftForm() {
           <option value="">Please select a marketplace</option>
           <option value="Blur">Blur</option>
           <option value="Foundation">Foundation</option>
+          <option value="Gamma.io">Gamma.io</option>
           <option value="KnownOrigin">KnownOrigin</option>
           <option value="MagicEden">MagicEden</option>
           <option value="Mintable">Mintable</option>
