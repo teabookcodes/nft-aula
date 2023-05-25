@@ -79,19 +79,19 @@ export default function NftCard({
             if (result.data && result.data.length > 0) {
               setCanEdit(true);
               setCanDelete(true);
-              setFormNftName(nftName)
-              setFormCollection(collection)
-              setFormDescription(description)
-              setFormCategory(category)
-              setFormMarketplace(marketplace)
-              setFormBlockchain(blockchain)
-              setFormCurrency(currency)
-              setFormPrice(price)
-              setFormMarketplaceLink(marketplaceLink)
-              setFormCollectionLink(collectionLink)
-              setFormCollectionTwitter(collectionTwitter)
-              setFormCollectionWebsite(collectionWebsite)
-              setUpload(nftImage)
+              setFormNftName(nftName);
+              setFormCollection(collection);
+              setFormDescription(description);
+              setFormCategory(category);
+              setFormMarketplace(marketplace);
+              setFormBlockchain(blockchain);
+              setFormCurrency(currency);
+              setFormPrice(price);
+              setFormMarketplaceLink(marketplaceLink);
+              setFormCollectionLink(collectionLink);
+              setFormCollectionTwitter(collectionTwitter);
+              setFormCollectionWebsite(collectionWebsite);
+              setUpload(nftImage);
             } else {
               setCanEdit(false);
               setCanDelete(false);
@@ -145,7 +145,7 @@ export default function NftCard({
   }
 
   function toggleEdit() {
-    setShowEditFormModal(!showEditFormModal)
+    setShowEditFormModal(!showEditFormModal);
   }
 
   async function toggleDelete() {
@@ -162,7 +162,7 @@ export default function NftCard({
   }
 
   function openNftDetail() {
-    setShowNftDetailModal(!showNftDetailModal)
+    setShowNftDetailModal(!showNftDetailModal);
   }
 
   const handleSubmit = (e) => {
@@ -239,12 +239,13 @@ export default function NftCard({
 
   return (
     <div>
-      <Modal showModal={showNftDetailModal} setShowModal={setShowNftDetailModal}>
+      <Modal
+        showModal={showNftDetailModal}
+        setShowModal={setShowNftDetailModal}
+      >
         <div className="flex flex-col">
           <div>
-            <h3 className="text-xl font-semibold text-aulaBlack">
-              {nftName}
-            </h3>
+            <h3 className="text-xl font-semibold text-aulaBlack">{nftName}</h3>
             <h3 className="text-base mb-2">
               <span className="font-semibold">{collection}</span>
             </h3>
@@ -271,7 +272,9 @@ export default function NftCard({
       <Modal showModal={showEditFormModal} setShowModal={setShowEditFormModal}>
         <form onSubmit={handleSubmit} className="text-gray-700">
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Name of the NFT:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Name of the NFT:
+            </label>
             <input
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="text"
@@ -280,7 +283,9 @@ export default function NftCard({
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Collection name:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Collection name:
+            </label>
             <input
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="text"
@@ -289,7 +294,9 @@ export default function NftCard({
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Description:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Description:
+            </label>
             <textarea
               className="w-full rounded-md px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="text"
@@ -326,7 +333,9 @@ export default function NftCard({
             </div>
           )}
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Category:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Category:
+            </label>
             <select
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               value={formCategory}
@@ -352,7 +361,9 @@ export default function NftCard({
             </select>
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Marketplace:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Marketplace:
+            </label>
             <select
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               value={formMarketplace}
@@ -361,6 +372,7 @@ export default function NftCard({
               <option value="">Please select a marketplace</option>
               <option value="Blur">Blur</option>
               <option value="Foundation">Foundation</option>
+              <option value="Gamma.io">Gamma.io</option>
               <option value="KnownOrigin">KnownOrigin</option>
               <option value="MagicEden">MagicEden</option>
               <option value="Mintable">Mintable</option>
@@ -374,37 +386,44 @@ export default function NftCard({
             </select>
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Blockchain:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Blockchain:
+            </label>
             <select
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               value={formBlockchain}
               onChange={(e) => setFormBlockchain(e.target.value)}
             >
               <option value="">Please select a blockchain</option>
+              <option value="Bitcoin">Bitcoin (BTC)</option>
               <option value="BNB">Binance Chain (BNB)</option>
-              <option value="Ethereum">Ethereum</option>
-              <option value="Flow">Flow</option>
+              <option value="Ethereum">Ethereum (ETH)</option>
+              <option value="Flow">Flow (FLOW)</option>
               <option value="Polygon">Polygon</option>
-              <option value="Solana">Solana</option>
+              <option value="Solana">Solana (SOL)</option>
               <option value="Tezos">Tezos</option>
               <option value="WAX">Worldwide Asset Exchange (WAX)</option>
               <option value="Other">Other</option>
             </select>
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Currency:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Currency:
+            </label>
             <select
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               value={formCurrency}
               onChange={(e) => setFormCurrency(e.target.value)}
             >
               <option value="">Please select a currency</option>
+              <option value="BTC">Bitcoin (BTC)</option>
               <option value="BNB">Binance Coin (BNB)</option>
               <option value="DAI">DAI</option>
               <option value="ETH">Ether (ETH)</option>
               <option value="FLOW">FLOW</option>
               <option value="MATIC">MATIC</option>
               <option value="SOL">Solana (SOL)</option>
+              <option value="STX">Stacks (STX)</option>
               <option value="XTZ">Tezos (XTZ)</option>
               <option value="UNI">UNI</option>
               <option value="USDC">USDC</option>
@@ -414,7 +433,9 @@ export default function NftCard({
             </select>
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Price:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Price:
+            </label>
             <input
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="number"
@@ -423,7 +444,9 @@ export default function NftCard({
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Link to your NFT on the marketplace:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Link to your NFT on the marketplace:
+            </label>
             <input
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="text"
@@ -445,7 +468,9 @@ export default function NftCard({
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Twitter:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Twitter:
+            </label>
             <input
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="text"
@@ -455,7 +480,9 @@ export default function NftCard({
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-50 mb-2">Website:</label>
+            <label className="block text-gray-700 dark:text-gray-50 mb-2">
+              Website:
+            </label>
             <input
               className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
               type="text"
@@ -476,7 +503,9 @@ export default function NftCard({
         </form>
       </Modal>
       <Card
-        nftCard={pathname === "/saved" || pathname === "/profile" ? false : true}
+        nftCard={
+          pathname === "/saved" || pathname === "/profile" ? false : true
+        }
         marginBottom={pathname === "/saved" ? true : false}
         noPadding={true}
       >
@@ -664,7 +693,10 @@ export default function NftCard({
           )}
         </div>
 
-        <div onClick={openNftDetail} className="-my-8 rounded-md overflow-hidden w-full h-60 flex items-center cursor-pointer">
+        <div
+          onClick={openNftDetail}
+          className="-my-8 rounded-md overflow-hidden w-full h-60 flex items-center cursor-pointer"
+        >
           <img src={nftImage} alt={nftName} className="w-full" />
         </div>
 
@@ -788,6 +820,6 @@ export default function NftCard({
           </p>
         )} */}
       </Card>
-    </div >
+    </div>
   );
 }
