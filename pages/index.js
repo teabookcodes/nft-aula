@@ -343,6 +343,7 @@ export default function BrowsePage() {
                 onChange={(e) => setBlockchainFilter(e.target.value)}
               >
                 <option value="">Please select a blockchain</option>
+                <option value="Bitcoin">Bitcoin</option>
                 <option value="BNB">Binance Chain (BNB)</option>
                 <option value="Ethereum">Ethereum</option>
                 <option value="Flow">Flow</option>
@@ -363,12 +364,14 @@ export default function BrowsePage() {
                 onChange={(e) => setCurrencyFilter(e.target.value)}
               >
                 <option value="">Please select a currency</option>
+                <option value="BTC">Bitcoin (BTC)</option>
                 <option value="BNB">Binance Coin (BNB)</option>
                 <option value="DAI">DAI</option>
                 <option value="ETH">Ether (ETH)</option>
                 <option value="FLOW">FLOW</option>
                 <option value="MATIC">MATIC</option>
                 <option value="SOL">Solana (SOL)</option>
+                <option value="STX">Stacks (STX)</option>
                 <option value="XTZ">Tezos (XTZ)</option>
                 <option value="UNI">UNI</option>
                 <option value="USDC">USDC</option>
