@@ -246,7 +246,7 @@ export default function ListNftForm() {
 
       <div className="mb-6">
         <label className="block text-gray-700 dark:text-gray-50 uppercase mb-2">
-          Use of AI (e.g. Midjourney, DALL-E, ...):
+          Use of artificial intelligence (AI):
         </label>
         <select
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
