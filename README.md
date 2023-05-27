@@ -1,5 +1,2 @@
-# NFTaula.io
-
-A web app for NFT collectors to find or show their new NFTs
-
-IN DEVELOPMENT
+# NFTaula.io 🚀🎨💎
+A friendly NFT platform for creators and collectors to show and buy NFTs
