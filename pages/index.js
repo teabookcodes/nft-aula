@@ -425,9 +425,17 @@ export default function BrowsePage() {
                 <option value="Highest Price">Highest Price</option>
               </select>
             </div>
-            <div className="flex w-full justify-center md:justify-start px-3 mt-3">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-0 w-full justify-center md:justify-start px-3 mt-3">
               <button
-                className="bg-gray-200 text-aulaGray rounded-full py-2 px-4 hover:bg-gray-300"
+                type="submit"
+                className="bg-indigo-500 text-gray-100 rounded-full py-2 px-4 md:mr-2 hover:bg-indigo-600"
+                onClick={handleSubmit}
+              >
+                Search
+              </button>
+
+              <button
+                className="bg-gray-100 dark:bg-gray-700 text-aulaGray dark:text-gray-100 rounded-full py-2 px-4 hover:bg-gray-200 dark:hover:bg-gray-600"
                 onClick={resetFilters}
               >
                 Reset Filters
