@@ -62,6 +62,7 @@ export default function BrowsePage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     let query = supabase.from("nfts").select();
     if (searchTerm) {
       query = query.ilike("nftName", `%${searchTerm}%`);
@@ -132,7 +133,7 @@ export default function BrowsePage() {
     if (!error) {
       console.log(data);
       setFilteredNfts(data);
-      setCurrentPage("1");
+      setCurrentPage(1);
     } else {
       console.log(error);
     }
