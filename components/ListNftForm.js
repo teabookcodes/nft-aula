@@ -366,7 +366,8 @@ export default function ListNftForm() {
       </div>
       <div className="mb-6">
         <label className="block text-aulaBlack uppercase mb-2">
-          Link to your NFT on the marketplace:
+          Link to your <span className="font-semibold">NFT</span> on the
+          marketplace:
         </label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
@@ -378,7 +379,8 @@ export default function ListNftForm() {
       </div>
       <div className="mb-6">
         <label className="block text-aulaBlack uppercase mb-2">
-          Link to collection on the marketplace:
+          Link to <span className="font-semibold">collection</span> on the
+          marketplace:
         </label>
         <input
           className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
