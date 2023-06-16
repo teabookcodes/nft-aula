@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
             on Twitter.
           </p>
           <p className="mt-4">
-            I am a passionate NFT collector and creator, and I created
+          I am a passionate NFT collector and creator, and I created
             NFTaula.io to provide a space, where creators can showcase their
             work and collectors can easily browse and discover new pieces to add
             to their collections.

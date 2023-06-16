@@ -1,11 +1,12 @@
 import Layout from "../components/Layout";
 import Card from "../components/Card";
+import Notification from "@/components/Notification";
 import NftCard from "../components/NftCard";
 import ListNftForm from "../components/ListNftForm";
+import Pagination from "@/components/Pagination";
 import Router from "next/router";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useEffect, useState } from "react";
-import Pagination from "@/components/Pagination";
 
 export default function BrowsePage() {
   const supabase = useSupabaseClient();
@@ -443,6 +444,11 @@ export default function BrowsePage() {
             </div>
           </div>
         </Card>
+      )}
+      {session && (
+        <div className={showFilters ? "mt-4" : ""}>
+          <Notification />
+        </div>
       )}
       <div className="mt-12 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-12">
         {isLoading ? ( // Render loading indicator while data is being fetched
