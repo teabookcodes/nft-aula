@@ -13,8 +13,8 @@ const Notification = () => {
       <div className="flex justify-between p-4 rounded-md bg-indigo-500 shadow-xl shadow-gray-200 dark:shadow-none">
         <div>
           <p className="text-white leading-6">
-            📢 Sellers, please ensure your NFT metadata is up to date and remove
-            sold NFTs to enhance the user experience.
+            📢 Creators, please ensure your NFT metadata is up to date and
+            remove sold NFTs to enhance the user experience.
           </p>
           <p className="text-white leading-6">
             Thank you for your cooperation! 🎨
