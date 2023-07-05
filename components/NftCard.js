@@ -1,11 +1,8 @@
 import Card from "./Card";
-import EditNftForm from "./EditNftForm";
 import ClickOutHandler from "react-clickout-handler";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-import { Router, useRouter } from "next/router";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import Modal from "./Modal";
 
 export default function NftCard({
@@ -194,7 +191,96 @@ export default function NftCard({
     }
   }
 
+  // Form submit function
+
   function submitForm() {
+    const numericRegex = /^[\d,.]+$/;
+    const linkRegex = /^(https?:\/\/)?(?!twitter\.com)[^\s]+\.[^\s]+$/;
+
+    if (formNftName === "") {
+      alert("Please enter a valid NFT name.");
+      return;
+    }
+
+    if (formCollection === "") {
+      alert("Please enter a valid collection name.");
+      return;
+    }
+
+    if (upload === "") {
+      alert("Please upload an NFT image.");
+      return;
+    }
+
+    if (formCategory === "") {
+      alert("Please select a value for category.");
+      return;
+    }
+
+    if (formMarketplace === "") {
+      alert("Please select a value for marketplace.");
+      return;
+    }
+
+    if (formBlockchain === "") {
+      alert("Please select a value for blockchain.");
+      return;
+    }
+
+    if (formCurrency === "") {
+      alert("Please select a value for currency.");
+      return;
+    }
+
+    if (!numericRegex.test(formPrice)) {
+      alert("Please enter a valid price.");
+      return;
+    }
+
+    if (formMarketplaceLink) {
+      if (!linkRegex.test(formMarketplaceLink)) {
+        alert("Please enter a valid marketplace link.");
+        return;
+      } else if (
+        /^(https?:\/\/)?(twitter\.com)[^\s]+$/.test(formMarketplaceLink)
+      ) {
+        alert("Marketplace link cannot be a Twitter link.");
+        return;
+      }
+    } else {
+      alert("Please enter a valid marketplace link.");
+      return;
+    }
+
+    if (formCollectionLink) {
+      if (!linkRegex.test(formCollectionLink)) {
+        alert("Please enter a valid collection link.");
+        return;
+      } else if (
+        /^(https?:\/\/)?(twitter\.com)[^\s]+$/.test(formCollectionLink)
+      ) {
+        alert("Collection link cannot be a Twitter link.");
+        return;
+      }
+    } else {
+      alert("Please enter a valid collection link.");
+      return;
+    }
+
+    if (formCollectionWebsite) {
+      if (!linkRegex.test(formCollectionWebsite)) {
+        alert("Please enter a valid website link.");
+        return;
+      } else if (
+        /^(https?:\/\/)?(twitter\.com)[^\s]+$/.test(formCollectionWebsite)
+      ) {
+        alert("Collection website link cannot be a Twitter link.");
+        return;
+      }
+    }
+
+    // If input values are valid, insert data into Supabase
+
     supabase
       .from("nfts")
       .update({
