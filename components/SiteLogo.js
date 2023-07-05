@@ -2,12 +2,7 @@ import Link from "next/link";
 
 export default function SiteLogo() {
   return (
-    <Link
-      href="/"
-      onClick={() => {
-        window.location.reload();
-      }}
-    >
+    <Link href="https://www.nftaula.io/">
       <svg
         className="w-32"
         viewBox="0 0 262 74"
