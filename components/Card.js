@@ -1,5 +1,5 @@
 export default function Card({ children, noPadding, marginBottom, nftCard }) {
-  let classes = "bg-white dark:bg-gray-800 rounded-md shadow-xl shadow-gray-200 dark:shadow-none border border-1 border-gray-100 dark:border-gray-900";
+  let classes = "bg-white dark:bg-gray-800 rounded-xl shadow-xl shadow-gray-200 dark:shadow-none border border-1 border-gray-100 dark:border-gray-900";
 
   if (!noPadding) {
     classes += " p-4";

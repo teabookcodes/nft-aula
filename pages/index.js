@@ -176,7 +176,7 @@ export default function BrowsePage() {
               />
             </svg>
             <input
-              className="w-full rounded-full pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+              className="w-full rounded-full pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
               type="text"
               placeholder="Search NFTs"
               value={searchTerm}
@@ -202,7 +202,7 @@ export default function BrowsePage() {
             </svg>
 
             <input
-              className="w-full rounded-full pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+              className="w-full rounded-full pl-12 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none"
               type="text"
               placeholder="Search collections"
               value={collectionFilter}
@@ -288,7 +288,7 @@ export default function BrowsePage() {
                 Category:
               </label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
               >
@@ -316,7 +316,7 @@ export default function BrowsePage() {
                 Marketplace:
               </label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
                 value={marketplaceFilter}
                 onChange={(e) => setMarketplaceFilter(e.target.value)}
               >
@@ -341,7 +341,7 @@ export default function BrowsePage() {
                 Blockchain:
               </label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
                 value={blockchainFilter}
                 onChange={(e) => setBlockchainFilter(e.target.value)}
               >
@@ -362,7 +362,7 @@ export default function BrowsePage() {
                 Currency:
               </label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
                 value={currencyFilter}
                 onChange={(e) => setCurrencyFilter(e.target.value)}
               >
@@ -389,7 +389,7 @@ export default function BrowsePage() {
               </label>
               <div className="flex">
                 <input
-                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500 mr-2"
+                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500 mr-2"
                   type="text"
                   value={priceFilter.min}
                   onChange={(e) =>
@@ -397,7 +397,7 @@ export default function BrowsePage() {
                   }
                 />
                 <input
-                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                  className="w-1/2 rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
                   type="text"
                   value={priceFilter.max}
                   onChange={(e) =>
@@ -411,7 +411,7 @@ export default function BrowsePage() {
                 Sort by:
               </label>
               <select
-                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-full px-4 py-2 bg-gray-100 text-gray-700 dark:text-gray-100 dark:bg-gray-900 focus:outline-none focus:border-indigo-500"
                 value={sortFilter}
                 onChange={(e) => setSortFilter(e.target.value)}
               >
