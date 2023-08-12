@@ -5,6 +5,7 @@ import NavigationCard from "./NavigationCard";
 import CookieConsentBar from "./CookieConsentBar";
 // import WelcomePopup from "./WelcomePopup";
 import Footer from "./Footer";
+import { Router } from "next/router";
 
 export default function Layout({ children, hideNavigation }) {
   let rightColumnClasses = "";
@@ -72,8 +73,8 @@ export default function Layout({ children, hideNavigation }) {
       <div className="absolute top-8 right-2 md:right-4 lg:right-6">
         {renderThemeChanger()}
       </div>
-      <div className="flex w-full items-center justify-center pt-4">
-        <div className="mx-auto">
+      <div className="flex w-full items-center justify-start pt-4 px-4">
+        <div>
           <SiteLogo />
         </div>
       </div>
