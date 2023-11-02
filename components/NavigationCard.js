@@ -154,7 +154,7 @@ export default function NavigationCard() {
               </button>
             </div>
           )}
-          <Link
+          {/* <Link
             href="/info"
             className={
               pathname === "/info"
@@ -178,7 +178,7 @@ export default function NavigationCard() {
             </svg>
 
             <span className="hidden">Info</span>
-          </Link>
+          </Link> */}
           {!session && (
             <Link href="/login" className={nonActiveElementClasses}>
               <svg
